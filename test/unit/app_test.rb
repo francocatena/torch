@@ -64,10 +64,10 @@ class AppTest < ActiveSupport::TestCase
     assert @app.invalid?
     assert_equal 2, @app.errors.count
     assert_equal [
-      error_message_from_model(@app, :name, :too_long, :count => 255)
+      error_message_from_model(@app, :name, :too_long, count: 255)
     ], @app.errors[:name]
     assert_equal [
-      error_message_from_model(@app, :url, :too_long, :count => 255)
+      error_message_from_model(@app, :url, :too_long, count: 255)
     ], @app.errors[:url]
   end
 end

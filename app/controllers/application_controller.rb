@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       logger.error(error)
 
       unless response.redirect_url
-        render :template => 'shared/show_error', :locals => {:error => exception}
+        render 'shared/show_error', error: exception
       end
 
     # En caso que la presentaci贸n misma de la excepci贸n no salga como se espera

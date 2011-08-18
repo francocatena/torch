@@ -3,7 +3,7 @@ class AppsController < ApplicationController
   # GET /apps.json
   def index
     @title = t('view.apps.index_title')
-    @apps = App.paginate(:page => params[:page], :per_page => ROWS_PER_PAGE)
+    @apps = App.paginate(page: params[:page], per_page: ROWS_PER_PAGE)
 
     respond_to do |format|
       format.html # index.html.erb
