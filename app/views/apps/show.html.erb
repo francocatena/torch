@@ -1,0 +1,13 @@
+<section class="show_item">
+  <header>
+    <h1><%= @app.name %></h1>
+    <p><%= link_to @app.url, @app.url %></p>
+  </header>
+
+  <%= textilize @app.description %>
+</section>
+
+<nav class="links">
+  <%= link_to t('label.edit'), edit_app_path(@app) %> |
+  <%= link_to t('label.back'), apps_path %>
+</nav>

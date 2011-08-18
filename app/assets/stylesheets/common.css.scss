@@ -1,0 +1,143 @@
+@import "mixins";
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #f6f6f6;
+  color: $text-color;
+  font: 14px/18px "Lucida Grande", Geneva, Arial, Verdana, sans-serif;
+}
+
+div.field label {
+  display: block;
+}
+
+div.field textarea {
+  height: 5em;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+nav.links {
+  margin-top: 1em;
+}
+
+section.show_item {
+  header {
+    margin-bottom: 1em;
+
+    h1 + * {
+      margin-top: .5em;
+    }
+  }
+}
+
+table.list {
+  width: 100%;
+  border: 2px solid $table-th-bgcolor;
+  border-collapse: collapse;
+
+  td {
+    padding: .25em .5em;
+  }
+
+  th {
+    text-align: left;
+    padding: .5em;
+    color: $table-th-color;
+    background-color: $table-th-bgcolor;
+  }
+
+  tbody {
+    tr:nth-child(odd) {
+      background: $table-odd-td-bgcolor;
+    }
+
+    tr {
+      @include transition(.15s, background, ease-in);
+
+      &:hover {
+        background: darken($table-odd-td-bgcolor, 20%);
+        @include transition(.15s, background, ease-out);
+      }
+    }
+  }
+}
+
+#alert {
+  background: #a00;
+  color: #fff;
+}
+
+#alert, #notice {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  font-weight: bold;
+  font-size: 1.4em;
+  text-align: center;
+  padding: .75em 1em;
+  opacity: .8;
+  
+  .close {
+    position: absolute;
+    top: .5em;
+    right: 1em;
+    font-size: .6em;
+    font-weight: normal;
+    border: 2px solid #dfdfdf;
+    @include rounded-corners(.5em);
+    
+    a {
+      background: inherit;
+      color: #dfdfdf;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 1px 5px;
+    }
+  }
+}
+
+#content {
+  width: 90%;
+  margin: 3em auto;
+  padding: 1em;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  @include rounded-corners(.25em);
+}
+
+#error_explanation {
+  width: 100%;
+  margin-bottom: 1.5em;
+  background-color: #efefef;
+  border: 2px solid $main-color;
+  @include rounded-corners(.5em);
+
+  h2 {
+    padding: .5em 1em;
+    font-size: 1em;
+    background-color: $main-color;
+    color: #fff;
+  }
+
+  ul {
+    margin: 1em 1em 1em 3em;
+    
+    li {
+      list-style: square;
+    }
+  }
+}
+
+#notice {
+  background: #151215;
+  color: #fff;
+}

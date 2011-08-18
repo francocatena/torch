@@ -1,0 +1,42 @@
+'es':
+  app_name: 'Ayuda'
+  
+  attributes:
+    created_at: 'Creación'
+    updated_at: 'Actualización'
+    
+  activerecord:
+    models:
+      app: 'Aplicación'
+      
+    attributes:
+      app:
+        name: 'Nombre'
+        url: 'URL'
+        description: 'Descripción'
+  
+  label:
+    back: 'Volver'
+    close: 'Cerrar'
+    edit: 'Editar'
+    show: 'Ver'
+    delete: 'Eliminar'
+    
+  messages:
+    confirmation: '¿Está seguro?'
+  
+  view:
+    apps:
+      index_title: 'Listado de aplicaciones'
+      show_title: 'Detalle de aplicación'
+      new_title: 'Nueva aplicación'
+      edit_title: 'Modificar aplicación'
+      correctly_created: 'Aplicación agregada correctamente.'
+      correctly_updated: 'Aplicación actualizada correctamente.'
+      stale_object_error: 'La aplicación no pudo ser actualizada, intente nuevamente.'
+      new: 'Nueva'
+  
+  will_paginate:
+    previous_label: '&laquo; Anterior'
+    next_label: 'Siguiente &raquo;'
+    page_gap: "&hellip;"

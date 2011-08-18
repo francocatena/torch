@@ -1,0 +1,10 @@
+<div id="notice">
+  <p><%= flash.notice %></p>
+  
+  <div class="close">
+    <%= link_to_function(
+      'X', "$('#notice').stop().fadeOut()", title: t('label.close')
+    ) %>
+  </div>
+</div>
+<%= javascript_tag "$('#notice').delay(7000).fadeOut();" %>

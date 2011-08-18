@@ -1,0 +1,31 @@
+<table class="list">
+  <thead>
+    <tr>
+      <th><%= App.human_attribute_name :name %></th>
+      <th><%= App.human_attribute_name :url %></th>
+      <th><%= App.human_attribute_name :description %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apps.each do |app| %>
+      <tr>
+        <td><%= app.name %></td>
+        <td><%= app.url %></td>
+        <td><%= truncate app.description, length: 30, omission: '...' %></td>
+        <td><%= link_to t('label.show'), app %></td>
+        <td><%= link_to t('label.edit'), edit_app_path(app) %></td>
+        <td><%= link_to t('label.delete'), app,
+          confirm: t('messages.confirmation'), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<nav class="links">
+  <%= link_to t('view.apps.new'), new_app_path %>
+  <%= will_paginate @apps %>
+</nav>

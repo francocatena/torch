@@ -1,0 +1,27 @@
+$main-color: #f72;
+$text-color: #333;
+
+$table-th-color: #fff;
+$table-th-bgcolor: #666;
+$table-odd-td-bgcolor: #efefef;
+
+$highlight-color: #ff9;
+$soft-highlight-color: #ffc;
+
+@mixin box-shadow($h-offset: 0em, $v-offset: 0em, $blur-offset: .25em, $color: #999) {
+  -moz-box-shadow: $h-offset $v-offset $blur-offset $color;
+  -webkit-box-shadow: $h-offset $v-offset $blur-offset $color;
+  box-shadow: $h-offset $v-offset $blur-offset $color;
+}
+
+@mixin rounded-corners($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($time, $property, $function) {
+  -moz-transition: $time $property $function;
+  -webkit-transition: $time $property $function;
+  transition: $time $property $function;
+}

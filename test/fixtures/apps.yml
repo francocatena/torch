@@ -1,0 +1,9 @@
+torch:
+  name: Torch
+  url: http://torch.com
+  description: The super help builder application
+
+ignite:
+  name: Ignite
+  url: http://ignite.com
+  description: The super presentation builder application =)
