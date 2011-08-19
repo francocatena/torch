@@ -11,16 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110818135342) do
+ActiveRecord::Schema.define(:version => 20110819123832) do
 
   create_table "apps", :force => true do |t|
-    t.string   "name",        :null => false
-    t.string   "url",         :null => false
-    t.text     "description", :null => false
+    t.string   "name",                        :null => false
+    t.string   "url",                         :null => false
+    t.text     "description",                 :null => false
+    t.integer  "lock_version", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "apps", ["name"], :name => "index_apps_on_name", :unique => true
+
+  create_table "hints", :force => true do |t|
+    t.string   "header",                      :null => false
+    t.text     "content",                     :null => false
+    t.integer  "importance",                  :null => false
+    t.integer  "app_id",                      :null => false
+    t.integer  "lock_version", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hints", ["app_id"], :name => "index_hints_on_app_id"
+  add_index "hints", ["header"], :name => "index_hints_on_header"
 
 end

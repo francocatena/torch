@@ -4,20 +4,17 @@
       <th><%= App.human_attribute_name :name %></th>
       <th><%= App.human_attribute_name :url %></th>
       <th><%= App.human_attribute_name :description %></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @apps.each do |app| %>
       <tr>
-        <td><%= app.name %></td>
+        <td><%= link_to app.name, app %></td>
         <td><%= app.url %></td>
         <td><%= truncate app.description, length: 30, omission: '...' %></td>
-        <td><%= link_to t('label.show'), app %></td>
-        <td><%= link_to t('label.edit'), edit_app_path(app) %></td>
+        <td><%= link_to t('view.apps.show_hints'), app_hints_path(app) %></td>
         <td><%= link_to t('label.delete'), app,
           confirm: t('messages.confirmation'), method: :delete %></td>
       </tr>

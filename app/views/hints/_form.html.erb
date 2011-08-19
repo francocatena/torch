@@ -1,0 +1,19 @@
+<%= form_for([@app, @hint]) do |f| %>
+  <%= show_error_messages @hint %>
+
+  <div class="field">
+    <%= f.label :header %>
+    <%= f.text_field :header, autofocus: true, size: nil %>
+  </div>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :importance %>
+    <%= f.number_field :importance, size: nil %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -41,6 +41,13 @@ table.list {
   width: 100%;
   border: 2px solid $table-th-bgcolor;
   border-collapse: collapse;
+  
+  caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: .5em;
+  }
 
   td {
     padding: .25em .5em;
@@ -133,6 +140,31 @@ table.list {
     
     li {
       list-style: square;
+    }
+  }
+}
+
+#menu {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background: #333;
+  padding: .25em 1em;
+  border-bottom: 4px solid $main-color;
+
+  ul {
+    li {
+      display: inline;
+      list-style: none;
+      
+      a {
+        color: #efefef;
+        
+        &:hover {
+          color: #c00;
+        }
+      }
     }
   }
 }

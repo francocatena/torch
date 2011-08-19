@@ -1,8 +1,6 @@
 require 'test_helper'
 
 class AppTest < ActiveSupport::TestCase
-  fixtures :apps
-
   def setup
     @app = App.find apps(:torch).id
   end

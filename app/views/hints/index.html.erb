@@ -1,0 +1,28 @@
+<table class="list">
+  <caption><%= t('view.hints.hints_for', app: @app.to_s) %></caption>
+  
+  <thead>
+    <tr>
+      <th><%= Hint.human_attribute_name :header %></th>
+      <th><%= Hint.human_attribute_name :content %></th>
+      <th><%= Hint.human_attribute_name :importance %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hints.each do |hint| %>
+      <tr>
+        <td><%= link_to hint.header, app_hint_path(@app, hint) %></td>
+        <td><%= truncate hint.content, length: 30, omission: '...' %></td>
+        <td><%= hint.importance %></td>
+        <td><%= link_to t('label.delete'), app_hint_path(@app, hint),
+          confirm: t('messages.confirmation'), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<nav class="links">
+  <%= link_to t('label.new'), new_app_hint_path(@app) %>
+</nav>

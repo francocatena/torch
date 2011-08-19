@@ -1,0 +1,12 @@
+<section class="show_item">
+  <header>
+    <h1><%= @hint.header %></h1>
+  </header>
+  
+  <%= textilize @hint.content %>
+</section>
+
+<nav class="links">
+  <%= link_to t('label.edit'), edit_app_hint_path(@app, @hint) %> |
+  <%= link_to t('label.back'), app_hints_path(@app) %>
+</nav>

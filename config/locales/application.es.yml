@@ -8,19 +8,29 @@
   activerecord:
     models:
       app: 'Aplicación'
+      hint: 'Consejo'
       
     attributes:
       app:
         name: 'Nombre'
         url: 'URL'
         description: 'Descripción'
+      hint:
+        header: 'Título'
+        content: 'Contenido'
+        importance: 'Importancia'
+        app: 'Aplicación'
   
   label:
     back: 'Volver'
     close: 'Cerrar'
     edit: 'Editar'
+    new: 'Nuevo'
     show: 'Ver'
     delete: 'Eliminar'
+    
+  menu:
+    apps: 'Aplicaciones'
     
   messages:
     confirmation: '¿Está seguro?'
@@ -35,6 +45,16 @@
       correctly_updated: 'Aplicación actualizada correctamente.'
       stale_object_error: 'La aplicación no pudo ser actualizada, intente nuevamente.'
       new: 'Nueva'
+      show_hints: 'Ver consejos'
+    hints:
+      index_title: 'Listado de consejos'
+      show_title: 'Detalle de consejo'
+      new_title: 'Nuevo consejo'
+      edit_title: 'Modificar consejo'
+      correctly_created: 'Consejo agregado correctamente.'
+      correctly_updated: 'Consejo actualizado correctamente.'
+      stale_object_error: 'El consejo no pudo ser actualizada, intente nuevamente.'
+      hints_for: 'Consejos de %{app}'
   
   will_paginate:
     previous_label: '&laquo; Anterior'

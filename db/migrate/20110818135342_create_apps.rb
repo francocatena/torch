@@ -4,6 +4,7 @@ class CreateApps < ActiveRecord::Migration
       t.string :name, null: false
       t.string :url, null: false
       t.text :description, null: false
+      t.integer :lock_version, default: 0
 
       t.timestamps
     end
