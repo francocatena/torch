@@ -6,6 +6,7 @@ gem 'pg'
 gem 'will_paginate'
 gem 'RedCloth'
 gem 'jquery-rails'
+gem 'paperclip'
 
 group :assets do
   gem 'sass-rails', '~> 3.1.0.rc'

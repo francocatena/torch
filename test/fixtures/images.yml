@@ -1,0 +1,15 @@
+login:
+  name: Login screenshot
+  caption: Login screen
+  image_file_name: login.gif
+  image_content_type: 'image/gif'
+  image_file_size: 10
+  image_updated_at: <%= Time.now.to_s(:db) %>
+
+welcome:
+  name: Welcome screenshot
+  caption: Welcome screen
+  image_file_name: welcome.gif
+  image_content_type: 'image/gif'
+  image_file_size: 12
+  image_updated_at: <%= Time.now.to_s(:db) %>

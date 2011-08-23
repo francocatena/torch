@@ -1,4 +1,6 @@
 Torch::Application.routes.draw do
+  resources :images
+
   resources :apps do
     resources :hints
   end

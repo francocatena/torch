@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110819123832) do
+ActiveRecord::Schema.define(:version => 20110819180614) do
 
   create_table "apps", :force => true do |t|
     t.string   "name",                        :null => false
@@ -36,5 +36,18 @@ ActiveRecord::Schema.define(:version => 20110819123832) do
 
   add_index "hints", ["app_id"], :name => "index_hints_on_app_id"
   add_index "hints", ["header"], :name => "index_hints_on_header"
+
+  create_table "images", :force => true do |t|
+    t.string   "name",               :null => false
+    t.string   "caption",            :null => false
+    t.string   "image_file_name",    :null => false
+    t.string   "image_content_type", :null => false
+    t.integer  "image_file_size",    :null => false
+    t.datetime "image_updated_at",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images", ["name"], :name => "index_images_on_name", :unique => true
 
 end

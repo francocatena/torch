@@ -1,5 +1,6 @@
 .bundle
 log/
 nbproject/private/
+public/system
 tmp/
 .sass-cache/

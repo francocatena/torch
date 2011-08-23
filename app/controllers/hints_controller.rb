@@ -2,8 +2,8 @@ class HintsController < ApplicationController
   before_filter :load_app
   hide_action :load_app
   
-  # GET /hints
-  # GET /hints.json
+  # GET /apps/1/hints
+  # GET /apps/1/hints.json
   def index
     @title = t('view.hints.index_title')
     @hints = @app.hints.paginate(page: params[:page], per_page: ROWS_PER_PAGE)
@@ -14,8 +14,8 @@ class HintsController < ApplicationController
     end
   end
 
-  # GET /hints/1
-  # GET /hints/1.json
+  # GET /apps/1/hints/1
+  # GET /apps/1/hints/1.json
   def show
     @title = t('view.hints.show_title')
     @hint = @app.hints.find(params[:id])
@@ -26,8 +26,8 @@ class HintsController < ApplicationController
     end
   end
 
-  # GET /hints/new
-  # GET /hints/new.json
+  # GET /apps/1/hints/new
+  # GET /apps/1/hints/new.json
   def new
     @title = t('view.hints.new_title')
     @hint = @app.hints.build
@@ -38,14 +38,14 @@ class HintsController < ApplicationController
     end
   end
 
-  # GET /hints/1/edit
+  # GET /apps/1/hints/1/edit
   def edit
     @title = t('view.hints.edit_title')
     @hint = @app.hints.find(params[:id])
   end
 
-  # POST /hints
-  # POST /hints.json
+  # POST /apps/1/hints
+  # POST /apps/1/hints.json
   def create
     @title = t('view.hints.new_title')
     @hint = @app.hints.build(params[:hint])
@@ -61,8 +61,8 @@ class HintsController < ApplicationController
     end
   end
 
-  # PUT /hints/1
-  # PUT /hints/1.json
+  # PUT /apps/1/hints/1
+  # PUT /apps/1/hints/1.json
   def update
     @title = t('view.hints.edit_title')
     @hint = @app.hints.find(params[:id])
@@ -82,8 +82,8 @@ class HintsController < ApplicationController
     redirect_to edit_app_hint_url(@app, @hint)
   end
 
-  # DELETE /hints/1
-  # DELETE /hints/1.json
+  # DELETE /apps/1/hints/1
+  # DELETE /apps/1/hints/1.json
   def destroy
     @hint = @app.hints.find(params[:id])
     @hint.destroy

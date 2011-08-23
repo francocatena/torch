@@ -9,6 +9,7 @@
     models:
       app: 'Aplicación'
       hint: 'Consejo'
+      image: 'Imagen'
       
     attributes:
       app:
@@ -20,6 +21,13 @@
         content: 'Contenido'
         importance: 'Importancia'
         app: 'Aplicación'
+      image:
+        name: 'Nombre'
+        caption: 'Título'
+        image_file_name: 'Imágen (archivo)'
+        image_content_type: 'Imágen (tipo)'
+        image_file_size: 'Imágen (tamaño)'
+        image_updated_at: 'Imágen (actualización)'
   
   label:
     back: 'Volver'
@@ -31,6 +39,7 @@
     
   menu:
     apps: 'Aplicaciones'
+    images: 'Imágenes'
     
   messages:
     confirmation: '¿Está seguro?'
@@ -55,6 +64,15 @@
       correctly_updated: 'Consejo actualizado correctamente.'
       stale_object_error: 'El consejo no pudo ser actualizada, intente nuevamente.'
       hints_for: 'Consejos de %{app}'
+    images:
+      index_title: 'Listado de imágenes'
+      show_title: 'Detalle de imagen'
+      new_title: 'Nueva imagen'
+      edit_title: 'Modificar imagen'
+      correctly_created: 'Imagen agregada correctamente.'
+      correctly_updated: 'Imagen actualizada correctamente.'
+      stale_object_error: 'La imagen no pudo ser actualizada, intente nuevamente.'
+      new: 'Nueva'
   
   will_paginate:
     previous_label: '&laquo; Anterior'
