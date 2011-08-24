@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', git: 'https://github.com/rails/rails.git', branch: '3-1-stable'
 
 gem 'pg'
+gem 'authlogic'
 gem 'will_paginate'
 gem 'RedCloth'
 gem 'jquery-rails'

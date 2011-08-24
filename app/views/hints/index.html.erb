@@ -25,4 +25,5 @@
 
 <nav class="links">
   <%= link_to t('label.new'), new_app_hint_path(@app) %>
+  <%= will_paginate @hints %>
 </nav>

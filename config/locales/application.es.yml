@@ -10,6 +10,7 @@
       app: 'Aplicación'
       hint: 'Consejo'
       image: 'Imagen'
+      user: 'Usuario'
       
     attributes:
       app:
@@ -28,6 +29,12 @@
         image_content_type: 'Imágen (tipo)'
         image_file_size: 'Imágen (tamaño)'
         image_updated_at: 'Imágen (actualización)'
+      user:
+        name: 'Nombre'
+        lastname: 'Apellido'
+        email: 'Correo'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmación'
   
   label:
     back: 'Volver'
@@ -40,6 +47,7 @@
   menu:
     apps: 'Aplicaciones'
     images: 'Imágenes'
+    users: 'Usuarios'
     
   messages:
     confirmation: '¿Está seguro?'
@@ -62,7 +70,7 @@
       edit_title: 'Modificar consejo'
       correctly_created: 'Consejo agregado correctamente.'
       correctly_updated: 'Consejo actualizado correctamente.'
-      stale_object_error: 'El consejo no pudo ser actualizada, intente nuevamente.'
+      stale_object_error: 'El consejo no pudo ser actualizado, intente nuevamente.'
       hints_for: 'Consejos de %{app}'
     images:
       index_title: 'Listado de imágenes'
@@ -73,6 +81,14 @@
       correctly_updated: 'Imagen actualizada correctamente.'
       stale_object_error: 'La imagen no pudo ser actualizada, intente nuevamente.'
       new: 'Nueva'
+    users:
+      index_title: 'Listado de usuarios'
+      show_title: 'Detalle de usuario'
+      new_title: 'Nuevo usuario'
+      edit_title: 'Modificar usuario'
+      correctly_created: 'Usuario agregado correctamente.'
+      correctly_updated: 'Usuario actualizado correctamente.'
+      stale_object_error: 'El usuario no pudo ser actualizado, intente nuevamente.'
   
   will_paginate:
     previous_label: '&laquo; Anterior'

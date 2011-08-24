@@ -1,0 +1,10 @@
+<%= render 'form' %>
+
+<nav class="links">
+  <%= link_to t('label.show'), @user %> |
+  <%= link_to(
+    t('label.delete'), @user,
+    confirm: t('messages.confirmation'), method: :delete
+  ) %> |
+  <%= link_to t('label.back'), users_path %>
+</nav>

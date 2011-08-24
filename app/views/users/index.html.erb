@@ -1,0 +1,24 @@
+<table class="list">
+  <thead>
+    <tr>
+      <th><%= User.human_attribute_name :name %></th>
+      <th><%= User.human_attribute_name :lastname %></th>
+      <th><%= User.human_attribute_name :email %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user %></td>
+        <td><%= user.lastname %></td>
+        <td><%= mail_to user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<nav class="links">
+  <%= link_to t('label.new'), new_user_path %>
+  <%= will_paginate @users %>
+</nav>

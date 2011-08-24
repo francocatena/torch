@@ -1,0 +1,29 @@
+<%= form_for(@user) do |f| %>
+  <%= show_error_messages @user %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, size: nil, maxlength: 255, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname, size: nil, maxlength: 255 %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, size: nil, maxlength: 255 %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, size: nil, maxlength: 255 %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, size: nil, maxlength: 255 %>
+  </div>
+
+  <div class="actions">
+    <%= f.hidden_field :lock_version %>
+    <%= f.submit %>
+  </div>
+<% end %>

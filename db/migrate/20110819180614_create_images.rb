@@ -7,6 +7,7 @@ class CreateImages < ActiveRecord::Migration
       t.string :image_content_type, null: false
       t.integer :image_file_size, null: false
       t.datetime :image_updated_at, null: false
+      t.integer :lock_version, default: 0
 
       t.timestamps
     end

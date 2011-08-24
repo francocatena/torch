@@ -1,0 +1,15 @@
+<section class="show_item">
+  <header>
+    <h1><%= @user %></h1>
+    <p><%= mail_to @user.email, @user.email %></p>
+  </header>
+</section>
+
+<nav class="links">
+  <%= link_to t('label.edit'), edit_user_path(@user) %> |
+  <%= link_to(
+    t('label.delete'), @user,
+    confirm: t('messages.confirmation'), method: :delete
+  ) %> |
+  <%= link_to t('label.back'), users_path %>
+</nav>

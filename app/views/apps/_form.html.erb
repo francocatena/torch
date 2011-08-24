@@ -13,7 +13,9 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
+
   <div class="actions">
+    <%= f.hidden_field :lock_version %>
     <%= f.submit %>
   </div>
 <% end %>

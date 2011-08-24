@@ -66,7 +66,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.update_attributes(params[:image])
-        format.html { redirect_to @image, notice: @title = t('view.images.edit_title') }
+        format.html { redirect_to @image, notice: t('view.images.correctly_updated') }
         format.json { head :ok }
       else
         format.html { render action: 'edit' }

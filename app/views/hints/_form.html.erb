@@ -13,7 +13,9 @@
     <%= f.label :importance %>
     <%= f.number_field :importance, size: nil %>
   </div>
+
   <div class="actions">
+    <%= f.hidden_field :lock_version %>
     <%= f.submit %>
   </div>
 <% end %>

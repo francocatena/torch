@@ -18,4 +18,5 @@
 
 <nav class="links">
   <%= link_to t('view.images.new'), new_image_path %>
+  <%= will_paginate @images %>
 </nav>

@@ -1,0 +1,15 @@
+admin:
+  name: Administrator
+  lastname: Administrator
+  email: admin@torch.com
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt('admin123' + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+
+anakin:
+  name: Anakin
+  lastname: Skywalker
+  email: anakin@sw.com
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt('anakin123' + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
