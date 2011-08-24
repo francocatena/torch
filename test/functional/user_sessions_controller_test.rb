@@ -45,6 +45,6 @@ class UserSessionsControllerTest < ActionController::TestCase
     delete :destroy
 
     assert_nil UserSession.find
-    assert_redirected_to new_user_session_url
+    assert_redirected_to admin_url
   end
 end

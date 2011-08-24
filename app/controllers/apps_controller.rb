@@ -1,4 +1,6 @@
 class AppsController < ApplicationController
+  before_filter :require_user, except: [:index, :show]
+  
   # GET /apps
   # GET /apps.json
   def index

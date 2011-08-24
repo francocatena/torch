@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
       flash.notice = t('messages.must_be_logged_in')
 
       store_location
-      redirect_to new_user_session_url
+      redirect_to admin_url
 
       false
     else

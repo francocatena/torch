@@ -7,6 +7,12 @@
 </section>
 
 <nav class="links">
-  <%= link_to t('label.edit'), edit_app_hint_path(@app, @hint) %> |
+  <% if current_user %>
+    <%= link_to t('label.edit'), edit_app_hint_path(@app, @hint) %> |
+    <%= link_to(
+      t('label.delete'), app_hint_path(@app, @hint),
+      confirm: t('messages.confirmation'), method: :delete
+    ) %> |
+  <% end %>
   <%= link_to t('label.back'), app_hints_path(@app) %>
 </nav>

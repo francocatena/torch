@@ -1,6 +1,6 @@
 class HintsController < ApplicationController
+  before_filter :require_user, except: [:index, :show]
   before_filter :load_app
-  hide_action :load_app
   
   # GET /apps/1/hints
   # GET /apps/1/hints.json

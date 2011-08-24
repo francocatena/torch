@@ -6,6 +6,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'should get index' do
+    UserSession.create(users(:admin))
     get :index
     assert_response :success
     assert_not_nil assigns(:users)
@@ -14,6 +15,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'should get new' do
+    UserSession.create(users(:admin))
     get :new
     assert_response :success
     assert_not_nil assigns(:user)
@@ -22,6 +24,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'should create user' do
+    UserSession.create(users(:admin))
     assert_difference('User.count') do
       post :create, user: {
         name: 'Jar Jar',
@@ -36,6 +39,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'should show user' do
+    UserSession.create(users(:admin))
     get :show, id: @user.to_param
     assert_response :success
     assert_not_nil assigns(:user)
@@ -44,6 +48,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'should get edit' do
+    UserSession.create(users(:admin))
     get :edit, id: @user.to_param
     assert_response :success
     assert_not_nil assigns(:user)
@@ -52,6 +57,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'should update user' do
+    UserSession.create(users(:admin))
     put :update, id: @user.to_param, user: {
       name: 'Darth',
       lastname: 'Sidious',
@@ -63,6 +69,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'should destroy user' do
+    UserSession.create(users(:admin))
     assert_difference('User.count', -1) do
       delete :destroy, id: @user.to_param
     end

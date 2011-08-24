@@ -2,5 +2,9 @@
 
 <nav class="links">
   <%= link_to t('label.show'), app_hint_path(@app, @hint) %> |
+  <%= link_to(
+      t('label.delete'), app_hint_path(@app, @hint),
+      confirm: t('messages.confirmation'), method: :delete
+    ) %> |
   <%= link_to t('label.back'), app_hints_path(@app) %>
 </nav>

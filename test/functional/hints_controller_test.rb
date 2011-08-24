@@ -16,6 +16,7 @@ class HintsControllerTest < ActionController::TestCase
   end
 
   test 'should get new' do
+    UserSession.create(users(:admin))
     get :new, app_id: @app.to_param
     assert_response :success
     assert_not_nil assigns(:hint)
@@ -24,6 +25,7 @@ class HintsControllerTest < ActionController::TestCase
   end
 
   test 'should create hint' do
+    UserSession.create(users(:admin))
     assert_difference('@app.hints.count') do
       post :create, app_id: @app.to_param, hint: {
         header: 'Update a hint in Torch',
@@ -44,6 +46,7 @@ class HintsControllerTest < ActionController::TestCase
   end
 
   test 'should get edit' do
+    UserSession.create(users(:admin))
     get :edit, app_id: @app.to_param, id: @hint.to_param
     assert_response :success
     assert_not_nil assigns(:hint)
@@ -52,6 +55,7 @@ class HintsControllerTest < ActionController::TestCase
   end
 
   test 'should update hint' do
+    UserSession.create(users(:admin))
     put :update, app_id: @app.to_param, id: @hint.to_param, hint: {
       header: 'Create a new hint in Torch (updated)',
       content: 'To create a new *hint* in _Torch_ you must... (updated)',
@@ -63,6 +67,7 @@ class HintsControllerTest < ActionController::TestCase
   end
 
   test 'should destroy hint' do
+    UserSession.create(users(:admin))
     assert_difference('@app.hints.count', -1) do
       delete :destroy, app_id: @app.to_param, id: @hint.to_param
     end

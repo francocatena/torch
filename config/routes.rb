@@ -2,6 +2,8 @@ Torch::Application.routes.draw do
   resources :user_sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end
+  
+  match 'admin' => 'user_sessions#new', :as => :admin
 
   resources :users
 
@@ -60,7 +62,7 @@ Torch::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root to: 'user_sessions#new'
+  root to: 'apps#index'
 
   # See how all your routes lay out with "rake routes"
 

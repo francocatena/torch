@@ -28,7 +28,7 @@ class ApplicationControllerTest < ActionController::TestCase
 
   test 'require user' do
     assert !@controller.send(:require_user)
-    assert_redirected_to new_user_session_url
+    assert_redirected_to admin_url
     assert_equal I18n.t('messages.must_be_logged_in'),
       @controller.send(:flash)[:notice]
 

@@ -5,9 +5,18 @@
   </header>
 
   <%= textilize @app.description %>
+  
+  <br />
+  <p><%= link_to t('view.apps.show_hints'), app_hints_path(@app) %></p>
 </section>
 
 <nav class="links">
-  <%= link_to t('label.edit'), edit_app_path(@app) %> |
+  <% if current_user %>
+    <%= link_to t('label.edit'), edit_app_path(@app) %> |
+    <%= link_to(
+      t('label.delete'), @app,
+      confirm: t('messages.confirmation'), method: :delete
+    ) %> |
+  <% end %>
   <%= link_to t('label.back'), apps_path %>
 </nav>

@@ -28,7 +28,7 @@ class UserSessionsController < ApplicationController
     current_user_session.destroy
 
     respond_to do |format|
-      format.html { redirect_to(new_user_session_url, notice: t('view.user_sessions.correctly_destroyed')) }
+      format.html { redirect_to(admin_url, notice: t('view.user_sessions.correctly_destroyed')) }
       format.json { head :ok }
     end
   end

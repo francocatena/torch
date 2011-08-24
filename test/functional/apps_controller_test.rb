@@ -14,6 +14,7 @@ class AppsControllerTest < ActionController::TestCase
   end
 
   test 'should get new' do
+    UserSession.create(users(:admin))
     get :new
     assert_response :success
     assert_not_nil assigns(:app)
@@ -22,6 +23,7 @@ class AppsControllerTest < ActionController::TestCase
   end
 
   test 'should create app' do
+    UserSession.create(users(:admin))
     assert_difference('App.count') do
       post :create, app: {
         name: 'Rocket control',
@@ -42,6 +44,7 @@ class AppsControllerTest < ActionController::TestCase
   end
 
   test 'should get edit' do
+    UserSession.create(users(:admin))
     get :edit, id: @app.to_param
     assert_response :success
     assert_not_nil assigns(:app)
@@ -50,6 +53,7 @@ class AppsControllerTest < ActionController::TestCase
   end
 
   test 'should update app' do
+    UserSession.create(users(:admin))
     put :update, id: @app.to_param, app: {
       name: 'Torch',
       url: 'http://torch.com',
@@ -61,6 +65,7 @@ class AppsControllerTest < ActionController::TestCase
   end
 
   test 'should destroy app' do
+    UserSession.create(users(:admin))
     assert_difference('App.count', -1) do
       delete :destroy, id: @app.to_param
     end
