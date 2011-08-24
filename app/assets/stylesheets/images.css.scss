@@ -1,3 +1,11 @@
-// Place all the styles related to the Images controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+section.show_item {
+  section.image_container {
+    margin: 1em 0em;
+    border: 1px dotted #333;
+    padding: .5em;
+    
+    p {
+      margin: .5em 0em;
+    }
+  }
+}
