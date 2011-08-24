@@ -45,12 +45,16 @@
     delete: 'Eliminar'
     
   menu:
+    actions:
+      logout: 'Salir'
     apps: 'Aplicaciones'
     images: 'Imágenes'
     users: 'Usuarios'
     
   messages:
     confirmation: '¿Está seguro?'
+    must_be_logged_in: 'Debe ingresar para poder ver el contenido requerido'
+    must_be_logged_out: 'Debe salir para poder ver el contenido requerido'
   
   view:
     apps:
@@ -89,6 +93,11 @@
       correctly_created: 'Usuario agregado correctamente.'
       correctly_updated: 'Usuario actualizado correctamente.'
       stale_object_error: 'El usuario no pudo ser actualizado, intente nuevamente.'
+    user_sessions:
+      login: 'Ingresar'
+      new_title: 'Iniciar sesión'
+      correctly_created: 'Bienvenido a Ayuda.'
+      correctly_destroyed: 'Sesión cerrada correctamente.'
   
   will_paginate:
     previous_label: '&laquo; Anterior'

@@ -5,3 +5,14 @@
     <li><%= link_to t('menu.images'), images_path %></li>
   </ul>
 </nav>
+
+<nav id="user_actions">
+  <div id="user"><%= current_user.email %></div>
+  <ul>
+    <li>
+      <%= link_to(
+        t('menu.actions.logout'), user_sessions_path, method: :delete
+      ) %>
+    </li>
+  </ul>
+</nav>

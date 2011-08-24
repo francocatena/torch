@@ -7,5 +7,6 @@
  *= require apps
  *= require hints
  *= require images
+ *= require user_sessions
  *= require users
 */

@@ -1,0 +1,30 @@
+<section id="login">
+  <%= form_for(@user_session) do |f| %>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, size: nil, autocomplete: :off, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, size: nil %>
+    </div>
+    <div class="field">
+      <%= f.check_box :remember_me %><%= f.label :remember_me %>
+    </div>
+    
+    <div class="actions">
+      <%= f.submit t('view.user_sessions.login') %>
+    </div>
+  <% end %>
+</section>
+
+<% if @user_session.errors.any? %>
+  <section id="login_error">
+    <p><%= @user_session.errors.full_messages.join('; ') %></p>
+    <div class="close">
+      <%= link_to_function(
+        'X', "$('#login_error').slideUp()", title: t('label.close')
+      ) %>
+    </div>
+  </section>
+<% end %>
