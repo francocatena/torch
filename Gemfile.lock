@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 933120cdfe461a442e615c638a43bc66cb86df99
+  revision: 0353435445a16cd5ca3b1eaebbdd427df53a9269
   branch: 3-1-stable
   specs:
     actionmailer (3.1.0.rc6)
@@ -138,7 +138,7 @@ GEM
       actionpack (~> 3.1.0.rc6)
       railties (~> 3.1.0.rc6)
       sass (>= 3.1.4)
-    sprockets (2.0.0.beta.14)
+    sprockets (2.0.0.beta.15)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (!= 1.3.0, ~> 1.1)

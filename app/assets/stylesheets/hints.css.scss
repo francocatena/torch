@@ -1,3 +1,37 @@
-// Place all the styles related to the Hints controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins";
+
+#hints {
+  br {
+    clear: both;
+  }
+  
+  figure {
+    margin: .5em 0em;
+    img {
+      float: left;
+      border: 2px solid lighten($text-color, 40%);
+    }
+  }
+
+  h1, h2, h3 {
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.25em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  header {
+    h1 {
+      font-size: 1.5em;
+    }
+  }
+}
