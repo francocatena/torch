@@ -3,9 +3,11 @@ new_hint:
   content: 'To create a new *hint* in _Torch_ you must...'
   importance: 1
   app: torch
+  tags: hints
 
 new_slide:
   header: 'Create a new slide in Ignite'
   content: 'To create a new *slide* in _Ignite_ you must...'
   importance: 1
   app: ignite
+  tags: slides

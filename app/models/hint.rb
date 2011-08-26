@@ -7,6 +7,7 @@ class Hint < ActiveRecord::Base
   
   # Relaciones
   belongs_to :app, inverse_of: :hints
+  has_and_belongs_to_many :tags
   
   def initialize(attributes = nil, options = {})
     super(attributes, options)

@@ -1,0 +1,7 @@
+slides:
+  name: Slides
+  app: ignite
+
+hints:
+  name: Hints
+  app: torch

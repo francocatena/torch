@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110824141215) do
+ActiveRecord::Schema.define(:version => 20110826173353) do
 
   create_table "apps", :force => true do |t|
     t.string   "name",                        :null => false
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(:version => 20110824141215) do
   add_index "hints", ["app_id"], :name => "index_hints_on_app_id"
   add_index "hints", ["header"], :name => "index_hints_on_header"
 
+  create_table "hints_tags", :id => false, :force => true do |t|
+    t.integer "hint_id", :null => false
+    t.integer "tag_id",  :null => false
+  end
+
+  add_index "hints_tags", ["hint_id", "tag_id"], :name => "index_hints_tags_on_hint_id_and_tag_id", :unique => true
+
   create_table "images", :force => true do |t|
     t.string   "name",                              :null => false
     t.string   "caption",                           :null => false
@@ -50,6 +57,16 @@ ActiveRecord::Schema.define(:version => 20110824141215) do
   end
 
   add_index "images", ["name"], :name => "index_images_on_name", :unique => true
+
+  create_table "tags", :force => true do |t|
+    t.string   "name",       :null => false
+    t.integer  "app_id",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["app_id"], :name => "index_tags_on_app_id"
+  add_index "tags", ["name"], :name => "index_tags_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "name",                             :null => false

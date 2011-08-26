@@ -6,6 +6,7 @@ class App < ActiveRecord::Base
   
   # Relaciones
   has_many :hints, dependent: :destroy, inverse_of: :app
+  has_many :tags, dependent: :destroy, inverse_of: :app
   
   def to_s
     self.name
