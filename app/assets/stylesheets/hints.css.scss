@@ -20,14 +20,17 @@
 
   h1 {
     font-size: 1.5em;
+    margin-bottom: 1em 0em;
   }
 
   h2 {
     font-size: 1.25em;
+    margin: 1em 1em;
   }
 
   h3 {
     font-size: 1.1em;
+    margin: .5em 2em;
   }
 
   header {
@@ -50,6 +53,16 @@
         @include rounded-corners(.5em);
       }
     }
+  }
+  
+  p, ul, ol {
+    margin: .5em 3em;
+  }
+
+  pre, div.example {
+    margin: .5em 3em;
+    padding: .5em;
+    border: 1px dotted $text-color;
   }
 
   ul.tagit {
