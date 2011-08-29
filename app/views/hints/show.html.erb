@@ -1,6 +1,13 @@
 <section class="show_item">
   <header>
     <h1><%= @hint.header %></h1>
+    <% unless @hint.tags.empty? %>
+      <ul>
+        <% @hint.tags.each do |tag| %>
+          <li><%= tag %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </header>
   
   <%= textilize @hint.content %>

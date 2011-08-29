@@ -21,6 +21,7 @@
         header: 'Título'
         content: 'Contenido'
         importance: 'Importancia'
+        tag_list: 'Etiquetas'
         app: 'Aplicación'
       image:
         name: 'Nombre'

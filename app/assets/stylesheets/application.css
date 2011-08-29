@@ -9,4 +9,6 @@
  *= require images
  *= require user_sessions
  *= require users
+ *= require vendor/jquery-ui
+ *= require vendor/jquery.tagit
 */

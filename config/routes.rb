@@ -11,6 +11,8 @@ Torch::Application.routes.draw do
   
   resources :apps do
     resources :hints
+    
+    get :tags, on: :member, defaults: { format: 'json' }
   end
 
   # The priority is based upon order of creation:

@@ -92,4 +92,15 @@ class AppsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  # GET /apps/1/tags.json
+  def tags
+    tags = App.find(params[:id]).tags.where(
+      'LOWER(name) LIKE ?', "#{params[:q]}%"
+    ).order('name ASC').limit(10)
+    
+    respond_to do |format|
+      format.json { render json: tags }
+    end
+  end
 end

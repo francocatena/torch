@@ -95,4 +95,32 @@ class HintTest < ActiveSupport::TestCase
       error_message_from_model(@hint, :importance, :greater_than, count: 0)
     ], @hint.errors[:importance]
   end
+  
+  test 'read tag list' do
+    assert_equal 'Hints', @hint.tag_list
+  end
+  
+  test 'write tag list' do
+    assert_difference ['Tag.count', '@hint.tags.count'], 2 do
+      assert @hint.update_attributes(tag_list: 'Hints, Multi word tag,NewTag, ')
+    end
+    
+    assert_equal 'Hints,Multi word tag,NewTag', @hint.reload.tag_list
+    
+    assert_difference '@hint.tags.count', -2 do
+      assert_no_difference 'Tag.count' do
+        assert @hint.update_attributes(tag_list: 'NewTag, ')
+      end
+    end
+    
+    assert_equal 'NewTag', @hint.reload.tag_list
+    
+    assert_difference '@hint.tags.count', -1 do
+      assert_no_difference 'Tag.count' do
+        assert @hint.update_attributes(tag_list: '')
+      end
+    end
+    
+    assert_equal '', @hint.reload.tag_list
+  end
 end

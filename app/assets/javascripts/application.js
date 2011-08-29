@@ -5,5 +5,11 @@
 // the compiled file.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
-//= require_tree .
+//= require vendor/tag-it
+//= require apps
+//= require hints
+//= require images
+//= require user_sessions
+//= require users

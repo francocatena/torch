@@ -13,9 +13,27 @@
     <%= f.label :importance %>
     <%= f.number_field :importance, size: nil %>
   </div>
+  <div class="field">
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list, size: nil %>
+  </div>
 
   <div class="actions">
     <%= f.hidden_field :lock_version %>
     <%= f.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+jQuery(function() {
+  $('#hint_tag_list').tagit({
+    allowSpaces: true,
+    removeConfirmation: true,
+    tagSource: function(search, showChoices) {
+      $.getJSON('<%= tags_app_path(@app) %>', {q: search.term}, function(data) {
+        showChoices($.map(data, function(t) { return t.name; }));
+      });
+    }
+  });
+});
+</script>

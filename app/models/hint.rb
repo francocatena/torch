@@ -18,4 +18,22 @@ class Hint < ActiveRecord::Base
   def to_s
     self.header
   end
+  
+  def tag_list
+    self.tags.map(&:to_s).join(',')
+  end
+  
+  def tag_list=(tags)
+    tags = (tags || '').split(/\s*,\s*/).reject(&:blank?)
+    
+    # Remove the removed =)
+    self.tags.delete *self.tags.reject { |t| tags.include?(t.name) }
+    
+    # Add or create and add the new ones
+    tags.each do |tag|
+      unless self.tags.map(&:name).include?(tag)
+        self.tags << self.app.tags.find_or_create_by_name(tag)
+      end
+    end
+  end
 end

@@ -72,4 +72,22 @@ class AppsControllerTest < ActionController::TestCase
 
     assert_redirected_to apps_path
   end
+  
+  test 'should get tags' do
+    UserSession.create(users(:admin))
+    get :tags, id: @app.to_param, q: 'hin', format: 'json'
+    assert_response :success
+    
+    tags = ActiveSupport::JSON.decode(@response.body)
+    
+    assert_equal 1, tags.size
+    assert tags.all? { |t| t['name'].match /hin/i }
+    
+    get :tags, id: @app.to_param, q: 'no_tag', format: 'json'
+    assert_response :success
+    
+    tags = ActiveSupport::JSON.decode(@response.body)
+    
+    assert_equal 0, tags.size
+  end
 end
