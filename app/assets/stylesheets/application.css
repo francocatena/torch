@@ -5,6 +5,7 @@
  *= require_self
  *= require common
  *= require apps
+ *= require feedbacks
  *= require hints
  *= require images
  *= require user_sessions

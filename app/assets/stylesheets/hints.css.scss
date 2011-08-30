@@ -1,71 +1,98 @@
 @import "mixins";
 
 #hints {
-  br {
-    clear: both;
-  }
-  
-  figure {
-    margin: .5em 0em;
-
-    img {
-      float: left;
-      border: 2px solid lighten($text-color, 40%);
+  #content {
+    br {
+      clear: both;
     }
-  }
 
-  h1, h2, h3 {
-    font-weight: bold;
-  }
+    figure {
+      margin: .5em 0em;
 
-  h1 {
-    font-size: 1.5em;
-    margin-bottom: 1em 0em;
-  }
-
-  h2 {
-    font-size: 1.25em;
-    margin: 1em 1em;
-  }
-
-  h3 {
-    font-size: 1.1em;
-    margin: .5em 2em;
-  }
-
-  header {
-    h1 {
-      font-size: 1.5em;
-    }
-    
-    ul {
-      li {
-        display: inline;
-        font-size: .8em;
-        margin-right: .25em;
-        padding: .2em .5em;
-        font-weight: bold;
-        background-color: $main-color;
-        color: #fff;
-        border: 1px solid $text-color;
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
-        box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .4), 0 .9em .5em -0.2em rgba(255, 255, 255, .2) inset;
-        @include rounded-corners(.5em);
+      img {
+        float: left;
+        border: 2px solid lighten($text-color, 40%);
       }
     }
-  }
-  
-  p, ul, ol {
-    margin: .5em 3em;
-  }
 
-  pre, div.example {
-    margin: .5em 3em;
-    padding: .5em;
-    border: 1px dotted $text-color;
-  }
+    footer {
+      display: block;
+      clear: both;
+      padding: .5em 1em;
+      background: #e8e8e8;
+      margin: 1em -1em -1em -1em;
 
-  ul.tagit {
-    margin: .5em 0em;
+      p {
+        font-size: .8em;
+        margin: 0em;
+
+        em {
+          font-weight: bold;
+          font-style: normal;
+          color: $main-color;
+          opacity: .8;
+        }
+      }
+
+      textarea {
+        width: 100%;
+        height: 4em;
+      }
+    }
+
+    h1, h2, h3 {
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 1em 0em;
+    }
+
+    h2 {
+      font-size: 1.25em;
+      margin: 1em 1em;
+    }
+
+    h3 {
+      font-size: 1.1em;
+      margin: .5em 2em;
+    }
+
+    header {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      ul {
+        li {
+          display: inline;
+          font-size: .8em;
+          margin-right: .25em;
+          padding: .2em .5em;
+          font-weight: bold;
+          background-color: $main-color;
+          color: #fff;
+          border: 1px solid $text-color;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+          box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .4), 0 .9em .5em -0.2em rgba(255, 255, 255, .2) inset;
+          @include rounded-corners(.5em);
+        }
+      }
+    }
+
+    p, ul, ol {
+      margin: .5em 3em;
+    }
+
+    pre, div.example {
+      margin: .5em 3em;
+      padding: .5em;
+      border: 1px dotted $text-color;
+    }
+
+    ul.tagit {
+      margin: .5em 0em;
+    }
   }
 }

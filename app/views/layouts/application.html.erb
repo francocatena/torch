@@ -9,6 +9,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="<%= controller_name %>" data-action="<%= action_name %>">
+  <div id="loading_caption" style="display: none;">
+    <%= t('messages.loading') %>
+  </div>
   <%= render 'shared/menu' if current_user %>
   <div id="content"><%= yield %></div>
   <%= render 'shared/notice' if flash.notice %>

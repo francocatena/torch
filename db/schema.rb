@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110826173353) do
+ActiveRecord::Schema.define(:version => 20110830161952) do
 
   create_table "apps", :force => true do |t|
     t.string   "name",                        :null => false
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(:version => 20110826173353) do
   end
 
   add_index "apps", ["name"], :name => "index_apps_on_name", :unique => true
+
+  create_table "feedbacks", :force => true do |t|
+    t.boolean  "positive",   :default => false, :null => false
+    t.text     "comments"
+    t.integer  "hint_id",                       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "feedbacks", ["hint_id"], :name => "index_feedbacks_on_hint_id"
+  add_index "feedbacks", ["positive"], :name => "index_feedbacks_on_positive"
 
   create_table "hints", :force => true do |t|
     t.string   "header",                      :null => false

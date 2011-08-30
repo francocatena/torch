@@ -8,7 +8,9 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require vendor/tag-it
+//= require common
 //= require apps
+//= require feedbacks
 //= require hints
 //= require images
 //= require user_sessions

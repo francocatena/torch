@@ -1,0 +1,9 @@
+all_ok:
+  positive: true
+  comments: ''
+  hint: new_hint
+
+needs_polishing:
+  positive: false
+  comments: ''
+  hint: new_hint

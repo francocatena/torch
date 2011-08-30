@@ -1,9 +1,14 @@
 Torch::Application.routes.draw do
+  match 'feedbacks/:hint_id/:score' => 'feedbacks#create', as: 'new_feedback',
+    via: :post, score: /positive|negative/
+  match 'feedbacks/:id' => 'feedbacks#update', as: 'update_feedback',
+    via: :put
+
   resources :user_sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end
   
-  match 'admin' => 'user_sessions#new', :as => :admin
+  match 'admin' => 'user_sessions#new', as: :admin
 
   resources :users
 
