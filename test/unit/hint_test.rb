@@ -25,11 +25,16 @@ class HintTest < ActiveSupport::TestCase
   end
 
   test 'update' do
-    assert_no_difference 'Hint.count' do
-      assert @hint.update_attributes(header: 'Updated name')
+    assert_no_difference ['Hint.count', '@hint.versions.count'] do
+      assert @hint.update_attributes(header: 'Updated header')
+    end
+    
+    assert_difference '@hint.versions.count' do
+      assert @hint.update_attributes(content: 'Updated content')
     end
 
-    assert_equal 'Updated name', @hint.reload.header
+    assert_equal 'Updated header', @hint.reload.header
+    assert_equal 'Updated content', @hint.reload.content
   end
 
   test 'destroy' do

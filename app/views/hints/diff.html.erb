@@ -1,0 +1,21 @@
+<section class="show_item">
+  <header>
+    <h1><%= @hint.header %></h1>
+    <% unless @hint.tags.empty? %>
+      <ul>
+        <% @hint.tags.each do |tag| %>
+          <li><%= tag %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </header>
+</section>
+
+<pre>
+<%= raw Differ.diff_by_line(h(@hint.content), h(@old_hint.content)) %>
+</pre>
+
+<nav class="links">
+  <%= link_to t('view.hints.show_current'), [@app, @hint] %> |
+  <%= link_to t('label.back'), history_app_hint_path(@app, @hint) %>
+</nav>

@@ -8,6 +8,8 @@ gem 'will_paginate'
 gem 'RedCloth'
 gem 'jquery-rails'
 gem 'paperclip'
+gem 'paper_trail'
+gem 'differ'
 
 group :assets do
   gem 'sass-rails'

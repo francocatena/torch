@@ -1,0 +1,21 @@
+hint_creation:
+  item_id: <%= ActiveRecord::Fixtures.identify(:new_hint) %>
+  item_type: Hint
+  event: create
+  whodunnit: <%= ActiveRecord::Fixtures.identify(:admin) %>
+  object: "<%= {}.to_yaml.gsub(/\n/,"\\n").gsub(/"/, '\\"') %>"
+  created_at: <%= 2.days.ago.to_s(:db) %>
+  
+past_hint_edition:
+  item_id: <%= ActiveRecord::Fixtures.identify(:new_hint) %>
+  item_type: Hint
+  event: update
+  whodunnit: <%= ActiveRecord::Fixtures.identify(:admin) %>
+  object: "<%= {
+    id: ActiveRecord::Fixtures.identify(:new_hint).to_s,
+    header: 'Historic change',
+    importance: '1',
+    app_id: ActiveRecord::Fixtures.identify(:torch).to_s,
+    content: 'Past content'}.to_yaml.gsub(/\n/,"\\n").gsub(/"/, '\\"')
+  %>"
+  created_at: <%= 1.day.ago.to_s(:db) %>

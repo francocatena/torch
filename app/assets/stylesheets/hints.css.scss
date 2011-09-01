@@ -5,6 +5,11 @@
     br {
       clear: both;
     }
+    
+    del.differ {
+      text-decoration: none;
+      background: #faa;
+    }
 
     figure {
       margin: .5em 0em;
@@ -79,6 +84,11 @@
           @include rounded-corners(.5em);
         }
       }
+    }
+    
+    ins.differ {
+      text-decoration: none;
+      background: #afa;
     }
 
     p, ul, ol {

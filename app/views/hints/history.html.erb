@@ -1,0 +1,23 @@
+<table class="list">
+  <caption><%= raw t('view.hints.history_of', hint: link_to(@hint.to_s, [@app, @hint])) %></caption>
+  
+  <thead>
+    <tr>
+      <th><%= Version.human_attribute_name :created_at %></th>
+      <th><%= User.model_name.human %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @versions.each do |version| %>
+      <tr>
+        <td><%= link_to l(version.created_at), diff_app_hint_path(app_id: @app, id: @hint, version_id: version) %></td>
+        <td><%= User.find(version.whodunnit) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<nav class="links">
+  <%= will_paginate @versions %>
+</nav>

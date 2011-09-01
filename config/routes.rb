@@ -15,10 +15,17 @@ Torch::Application.routes.draw do
   resources :images
   
   resources :apps do
-    resources :hints
+    resources :hints do
+      member do
+        get :history
+      end
+    end
     
     get :tags, on: :member, defaults: { format: 'json' }
   end
+  
+  match '/apps/:app_id/hints/:id/diff/:version_id' => 'hints#diff',
+    as: 'diff_app_hint', via: :get
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

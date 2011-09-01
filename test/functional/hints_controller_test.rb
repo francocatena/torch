@@ -74,4 +74,26 @@ class HintsControllerTest < ActionController::TestCase
 
     assert_redirected_to app_hints_url(@app)
   end
+  
+  test 'should get history' do
+    UserSession.create(users(:admin))
+    get :history, app_id: @app.to_param, id: @hint.to_param
+    assert_response :success
+    assert_not_nil assigns(:hint)
+    assert_not_nil assigns(:versions)
+    assert !assigns(:versions).empty?
+    assert_select '#unexpected_error', false
+    assert_template 'hints/history'
+  end
+  
+  test 'should get diff' do
+    UserSession.create(users(:admin))
+    get :diff, app_id: @app.to_param, id: @hint.to_param,
+      version_id: @hint.versions.last.to_param
+    assert_response :success
+    assert_not_nil assigns(:hint)
+    assert_not_nil assigns(:old_hint)
+    assert_select '#unexpected_error', false
+    assert_template 'hints/diff'
+  end
 end

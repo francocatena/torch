@@ -94,6 +94,34 @@ class HintsController < ApplicationController
     end
   end
   
+  # GET /app/1/hints/1/history
+  # GET /app/1/hints/1/history.json
+  def history
+    @title = t('view.hints.history_title')
+    @hint = @app.hints.find(params[:id])
+    @versions = @hint.versions.paginate(
+      page: params[:page], per_page: ROWS_PER_PAGE
+    )
+
+    respond_to do |format|
+      format.html # history.html.erb
+      format.json { render json: @versions }
+    end
+  end
+  
+  # GET /app/1/hints/1/diff/2
+  # GET /app/1/hints/1/diff/2.json
+  def diff
+    @title = t('view.hints.history_title')
+    @hint = @app.hints.find(params[:id])
+    @old_hint = @hint.versions.find(params[:version_id]).reify(has_one: false)
+
+    respond_to do |format|
+      format.html # diff.html.erb
+      format.json { render json: [@hint, @old_hint] }
+    end
+  end
+  
   private
 
   def load_app
