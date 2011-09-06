@@ -20,12 +20,31 @@
     }
 
     figure {
-      margin: .5em 0em;
+      margin: .5em 3em;
 
+      figcaption {
+        margin: .5em 0em;
+        font-style: italic;
+      }
+      
       img {
         float: left;
         border: 2px solid lighten($text-color, 40%);
+        @include box-shadow(.25em, .25em, .5em, #999);
+
+        &.super_border {
+          border: 4px solid $main-color;
+        }
+
+        &.clear_border {
+          border: none;
+        }
       }
+    }
+
+    figure.inline {
+      float: left;
+      margin: .5em 1em .5em 3em;
     }
 
     footer {
