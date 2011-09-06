@@ -15,12 +15,15 @@ class HintTest < ActiveSupport::TestCase
 
   test 'create' do
     assert_difference 'Hint.count' do
-      @hint = Hint.create(
-        header: 'Update a hint in Torch',
-        content: 'To update a *hint* in _Torch_ you must...',
-        importance: 1,
-        app: apps(:torch)
-      )
+      assert_difference 'Tag.count', 2 do
+        @hint = Hint.create(
+          header: 'Update a hint in Torch',
+          content: 'To update a *hint* in _Torch_ you must...',
+          importance: 1,
+          tag_list: 'New tag, other new tag',
+          app: apps(:torch)
+        )
+      end
     end
   end
 

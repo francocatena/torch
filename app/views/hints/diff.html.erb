@@ -12,7 +12,7 @@
 </section>
 
 <pre>
-<%= raw Differ.diff_by_line(h(@hint.content), h(@old_hint.content)) %>
+<%= raw Differ.diff_by_line(h(@hint.content), h(@old_hint.try(:content))) %>
 </pre>
 
 <nav class="links">

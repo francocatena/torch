@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   # Rescue any exception and show it in a "nice" page
   rescue_from Exception do |exception|
     begin
-      @title = t :'errors.title'
+      @title = t 'errors.title'
       error = "#{exception.class}: #{exception.message}\n\n"
       exception.backtrace.each { |l| error << "#{l}\n" }
 

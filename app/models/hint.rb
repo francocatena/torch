@@ -13,8 +13,9 @@ class Hint < ActiveRecord::Base
   has_and_belongs_to_many :tags
   
   def initialize(attributes = nil, options = {})
-    super(attributes, options)
+    super(attributes.except(:tag_list), options)
     
+    self.tag_list = attributes[:tag_list]
     self.importance ||= 1
   end
   
