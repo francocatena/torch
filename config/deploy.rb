@@ -15,8 +15,7 @@ role :web, 'fcatena.com.ar'
 role :app, 'fcatena.com.ar'
 role :db,  'fcatena.com.ar', primary: true
 
-after 'deploy:symlink', 'deploy:create_shared_symlinks',
-  'deploy:precomplile_assets'
+after 'deploy:symlink', 'deploy:create_shared_symlinks'
 
 namespace :deploy do
   task :start do
@@ -39,11 +38,5 @@ namespace :deploy do
 
       run "ln -s #{shared_files_path} #{release_files_path}"
     end
-  end
-  
-  desc 'precompile the assets'
-  task :precomplile_assets, roles: :web, except: { no_release: true } do
-    run "cd #{current_path}; rm -rf public/assets/*"
-    run "cd #{current_path}; RAILS_ENV=production bundle exec rake assets:precompile"
   end
 end
