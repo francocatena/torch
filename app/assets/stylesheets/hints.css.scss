@@ -5,6 +5,14 @@
     br {
       clear: both;
     }
+
+    code {
+      background: #eee;
+      padding: .1em .25em;
+      font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+      font-size: 1.1em;
+      @include rounded-corners(.25em);
+    }
     
     del.differ {
       text-decoration: none;
@@ -100,9 +108,38 @@
       padding: .5em;
       border: 1px dotted $text-color;
     }
+    
+    ul, ol {
+      ul, ol {
+        margin: 0em 0em 0em 1.5em;
+      }
+    }
 
     ul.tagit {
       margin: .5em 0em;
+    }
+
+    .action {
+      color: #fff;
+      background: #47ade0;
+      padding: .1em .5em;
+      line-height: 1.5em;
+      font-weight: bold;
+      text-shadow: .1em 1em 1em rgba(0, 0, 0, .3);
+      box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .4), 0 .9em .5em -0.2em rgba(255, 255, 255, .2) inset;
+      @include rounded-corners(.25em);
+    }
+
+    .highlight {
+      padding: .1em .25em;
+      background: #ff9;
+      @include rounded-corners(.5em);
+    }
+
+    .warning {
+      color: #c00;
+      font-weight: bold;
+      text-shadow: .1em .1em .1em rgba(0, 0, 0, .3);
     }
   }
 }
