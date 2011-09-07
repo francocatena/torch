@@ -2,12 +2,11 @@
   <%= show_error_messages @hint %>
 
   <div class="field">
-    <%= f.label :header %>
-    <%= f.text_field :header, autofocus: true, size: nil %>
+    <%= f.text_field :header, autofocus: true, size: nil,
+      placeholder: Hint.human_attribute_name(:header) %>
   </div>
   <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, placeholder: Hint.human_attribute_name(:content) %>
   </div>
   <div class="field">
     <%= f.label :importance %>
@@ -17,6 +16,8 @@
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list, size: nil %>
   </div>
+
+  <hr />
 
   <table class="summary">
     <caption><%= t('view.hints.comments') %></caption>
