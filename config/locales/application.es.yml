@@ -18,6 +18,11 @@
         name: 'Nombre'
         url: 'URL'
         description: 'Descripción'
+      comment:
+        comment: 'Comentario'
+        user_id: 'Para'
+        hint_id: 'Consejo'
+        must_be_sent_by_email: '¿Enviar por correo?'
       feedback:
         positive: 'Positivo'
         comment: 'Comentario'
@@ -62,6 +67,10 @@
     loading: 'Cargando'
     must_be_logged_in: 'Debe ingresar para poder ver el contenido requerido'
     must_be_logged_out: 'Debe salir para poder ver el contenido requerido'
+    
+  notifications:
+    new_comment:
+      subject: 'Nuevo comentario'
   
   view:
     apps:
@@ -92,6 +101,8 @@
       history: 'Ver historia'
       history_of: 'Histórico del consejo %{hint}'
       show_current: 'Ver versión actual'
+      comments: 'Comentarios'
+      comment_for_all: 'Todos los usuarios'
     images:
       index_title: 'Listado de imágenes'
       show_title: 'Detalle de imagen'

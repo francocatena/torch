@@ -9,8 +9,12 @@ class Hint < ActiveRecord::Base
   
   # Relaciones
   belongs_to :app, inverse_of: :hints
-  has_many :feedbacks, inverse_of: :hint
+  has_many :feedbacks, inverse_of: :hint, dependent: :destroy
+  has_many :comments, inverse_of: :hint, dependent: :destroy
   has_and_belongs_to_many :tags
+  
+  accepts_nested_attributes_for :comments, allow_destroy: false,
+    reject_if: lambda { |attr| attr['comment'].blank? }
   
   def initialize(attributes = nil, options = {})
     super(attributes.except(:tag_list), options)

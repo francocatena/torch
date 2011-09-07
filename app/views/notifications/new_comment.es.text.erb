@@ -1,0 +1,10 @@
+                         Tiene un nuevo comentario
+================================================================================
+
+Hicieron un nuevo comentario en el consejo "<%= @comment.hint %>" y decidieron
+notificarte
+
+<%= @comment.creator.name %> dijo: <%= @comment.comment %>
+
+Para ver el consejo copiá esto en la barra de tu navegador:
+<%= link_to @comment.hint, [@comment.hint.app, @comment.hint] %>

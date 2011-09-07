@@ -80,6 +80,32 @@ table.list {
   }
 }
 
+table.summary {
+  width: 100%;
+  border: 2px solid $table-th-bgcolor;
+  border-collapse: collapse;
+  margin: 1em 0em;
+
+  caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: .5em;
+  }
+  
+  td {
+    padding: .25em .5em;
+    vertical-align: top;
+  }
+
+  th {
+    text-align: left;
+    padding: .25em .5em;
+    color: $table-th-color;
+    background-color: $table-th-bgcolor;
+  }
+}
+
 #alert {
   background: #a00;
   color: #fff;

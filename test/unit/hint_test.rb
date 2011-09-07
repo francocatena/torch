@@ -41,7 +41,7 @@ class HintTest < ActiveSupport::TestCase
   end
 
   test 'destroy' do
-    assert_difference('Hint.count', -1) { @hint.destroy }
+    assert_difference(['Hint.count', 'Comment.count'], -1) { @hint.destroy }
   end
 
   test 'validates blank attributes' do

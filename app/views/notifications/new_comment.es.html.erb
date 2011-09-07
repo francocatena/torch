@@ -1,0 +1,12 @@
+<h2>Tiene un nuevo comentario</h2>
+
+<p>
+  Hicieron un nuevo comentario en el consejo
+  <%= link_to @comment.hint, app_hint_url(@comment.hint.app, @comment.hint) %> y
+  decidieron notificarte
+</p>
+
+<p>
+  <strong><%= @comment.creator.name %></strong> dijo:
+  <em><%= @comment.comment %></em>
+</p>

@@ -1,0 +1,9 @@
+is_ok:
+  comment: Everything is OK now
+  user: anakin
+  hint: new_hint
+
+one_more_change:
+  comment: This hint need a little tweak
+  user: anakin
+  hint: new_slide

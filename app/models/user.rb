@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
     c.crypto_provider = Authlogic::CryptoProviders::Sha512
   end
   
+  # Scopes
+  scope :all_except, lambda { |user_id| where('id <> ?', user_id) }
+  
+  # Restricciones
   validates :name, :lastname, presence: true, length: { maximum: 255 }
   validates :name, uniqueness: { scope: :lastname }
   
