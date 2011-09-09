@@ -1,24 +1,19 @@
-<table class="list">
-  <thead>
-    <tr>
-      <th><%= App.human_attribute_name :name %></th>
-      <th><%= App.human_attribute_name :url %></th>
-      <th><%= App.human_attribute_name :description %></th>
-      <th></th>
-    </tr>
-  </thead>
+<% @apps.each do |app| %>
+  <section class="app">
+    <header>
+      <h1><%= link_to app.name, app %></h1>
+      <p><%= link_to app.url, app.url %></p>
+    </header>
 
-  <tbody>
-    <% @apps.each do |app| %>
-      <tr>
-        <td><%= link_to app.name, app %></td>
-        <td><%= app.url %></td>
-        <td><%= truncate app.description, length: 30, omission: '...' %></td>
-        <td><%= link_to t('view.apps.show_hints'), app_hints_path(app) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="description">
+      <%= textilize app.description %>
+    </div>
+    
+    <p class="links">
+      <%= link_to t('view.apps.show_hints'), app_hints_path(app) %>
+    </p>
+  </section>
+<% end %>
 
 <nav class="links">
   <%= link_to t('view.apps.new'), new_app_path if current_user %>

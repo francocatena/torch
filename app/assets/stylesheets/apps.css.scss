@@ -1,7 +1,94 @@
+@import "mixins";
+
 #apps {
   #content {
+    nav.links {
+      clear: both;
+    }
+
+    section.app {
+      position: relative;
+      width: 15em;
+      height: 7em;
+      float: left;
+      padding: .5em 1em;
+      margin: 0em .5em .5em 0em;
+      border: 2px solid $text-color;
+      overflow: hidden;
+      @include rounded-corners(.5em);
+      @include box-shadow(0em, 0em, 1em, #999);
+      @include double-transition(.5s, height, ease-in, .5s .5s, width, ease-in);
+
+      a {
+        color: $text-color;
+        text-decoration: none;
+        padding-bottom: .1em;
+        border-bottom: 1px dotted $text-color;
+
+        &:hover {
+          color: $main-color;
+          border-bottom: 1px solid $main-color;
+        }
+      }
+
+      header {
+        margin-bottom: .5em;
+
+        h1 {
+          margin-bottom: .2em;
+        }
+
+        p {
+          a {
+            font-size: .75em;
+            color: lighten($text-color, 33%);
+          }
+        }
+      }
+
+      .description {
+        opacity: 0;
+        height: 0em;
+        overflow: auto;
+        @include double-transition(.1s, opacity, ease-in, .1s, height, ease-in);
+      }
+
+      .links {
+        position: absolute;
+        bottom: .5em;
+      }
+
+      &:hover {
+        width: 25em;
+        height: 12em;
+        border: 2px solid $main-color;
+        @include double-transition(.25s, width, ease-out, .25s .25s, height, ease-out);
+        
+        .description {
+          opacity: 1;
+          height: 6.5em;
+          @include transition(.1s .5s, opacity, ease-out);
+        }
+      }
+    }
+    
     ul {
       margin: .5em 2em;
+    }
+  }
+}
+
+#apps[data-action="show"] {
+  #content {
+    section.app {
+      width: 25em;
+      height: 12em;
+      margin: 0em 0em 1em 0em;
+
+      .description {
+        opacity: 1;
+        height: 6.5em;
+      }
     }
   }
 }

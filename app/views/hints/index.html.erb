@@ -21,6 +21,10 @@
 </table>
 
 <nav class="links">
-  <%= link_to t('label.new'), new_app_hint_path(@app) if current_user %>
+  <% if current_user %>
+    <%= link_to t('label.new'), new_app_hint_path(@app) %>
+  <% else %>
+    <%= link_to t('menu.apps'), apps_path %>
+  <% end %>
   <%= will_paginate @hints %>
 </nav>

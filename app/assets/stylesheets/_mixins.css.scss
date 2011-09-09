@@ -25,3 +25,9 @@ $soft-highlight-color: #ffc;
   -webkit-transition: $time $property $function;
   transition: $time $property $function;
 }
+
+@mixin double-transition($time_1, $property_1, $function_1, $time_2, $property_2, $function_2) {
+  -moz-transition: $time_1 $property_1 $function_1, $time_2 $property_2 $function_2;
+  -webkit-transition: $time_1 $property_1 $function_1, $time_2 $property_2 $function_2;
+  transition: $time_1 $property_1 $function_1, $time_2 $property_2 $function_2;
+}

@@ -1,13 +1,16 @@
-<section class="show_item">
+<section class="app">
   <header>
     <h1><%= @app.name %></h1>
     <p><%= link_to @app.url, @app.url %></p>
   </header>
 
-  <%= textilize @app.description %>
+  <div class="description">
+    <%= textilize @app.description %>
+  </div>
   
-  <br />
-  <p><%= link_to t('view.apps.show_hints'), app_hints_path(@app) %></p>
+  <p class="links">
+    <%= link_to t('view.apps.show_hints'), app_hints_path(@app) %>
+  </p>
 </section>
 
 <nav class="links">
