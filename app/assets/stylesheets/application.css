@@ -12,4 +12,5 @@
  *= require users
  *= require vendor/jquery-ui
  *= require vendor/jquery.tagit
+ *= require vendor/fancybox
 */

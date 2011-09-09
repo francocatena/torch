@@ -1,3 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+  if $('#hints').length > 0
+    style = /large|medium|thumb/
+    
+    $('figure:not(.avoid_fancybox) img').each ->
+      largeImage = $(this).attr('src').replace(style, 'original')
+      link = $('<a></a>').attr('href', largeImage).fancybox(type: 'image')
+
+      $(this).wrap(link)

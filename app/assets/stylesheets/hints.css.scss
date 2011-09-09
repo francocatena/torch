@@ -21,6 +21,7 @@
 
     figure {
       margin: .5em 3em;
+      overflow: auto;
 
       figcaption {
         margin: .5em 0em;
@@ -45,6 +46,11 @@
     figure.inline {
       float: left;
       margin: .5em 1em .5em 3em;
+    }
+
+    figure.inline_right {
+      float: right;
+      margin: .5em 3em .5em 1em;
     }
 
     footer {
@@ -125,6 +131,7 @@
     pre, div.example {
       margin: .5em 3em;
       padding: .5em;
+      overflow: auto;
       border: 1px dotted $text-color;
     }
     
