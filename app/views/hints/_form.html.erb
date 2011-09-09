@@ -23,6 +23,7 @@
     <caption><%= t('view.hints.comments') %></caption>
     <thead>
       <tr>
+        <th><%= Comment.human_attribute_name :creator %></th>
         <th><%= Comment.human_attribute_name :user_id %></th>
         <th><%= Comment.human_attribute_name :comment %></th>
         <th></th>
@@ -31,6 +32,7 @@
     <tbody>
       <% @hint.comments.reject(&:new_record?).each do |comment| %>
         <tr>
+          <td><%= comment.creator %></td>
           <td><%= comment.user || t('view.hints.comment_for_all') %></td>
           <td><%= comment.comment %></td>
           <td><%= l(comment.created_at, format: :short) %></td>
@@ -39,6 +41,7 @@
       <% @hint.comments.build unless @hint.comments.detect(&:new_record?) %>
       <%= f.fields_for :comments, @hint.comments.select(&:new_record?) do |c_f| %>
         <tr>
+          <td><%= current_user %></td>
           <td>
             <%= c_f.select :user_id, hint_user_list,
               prompt: t('view.hints.comment_for_all') %>

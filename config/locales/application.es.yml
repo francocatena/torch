@@ -20,6 +20,7 @@
         description: 'Descripción'
       comment:
         comment: 'Comentario'
+        creator: 'De'
         user_id: 'Para'
         hint_id: 'Consejo'
         must_be_sent_by_email: '¿Enviar por correo?'
@@ -102,7 +103,7 @@
       history_of: 'Histórico del consejo %{hint}'
       show_current: 'Ver versión actual'
       comments: 'Comentarios'
-      comment_for_all: 'Todos los usuarios'
+      comment_for_all: 'Todos'
     images:
       index_title: 'Listado de imágenes'
       show_title: 'Detalle de imagen'
