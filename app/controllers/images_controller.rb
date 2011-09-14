@@ -19,7 +19,7 @@ class ImagesController < ApplicationController
     end
     
     @images = images.paginate(
-      page: params[:page], per_page: 2 #ROWS_PER_PAGE
+      page: params[:page], per_page: ROWS_PER_PAGE
     )
 
     respond_to do |format|
