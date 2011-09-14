@@ -1,0 +1,24 @@
+<% options ||= {} %>
+<% url = options[:url] || request.fullpath.sub(/\?.*/, '') %>
+<% query_string = params[:q] %>
+<div id="search">
+  <div>
+    <%= form_for nil, as: :search, url: url, html: { method: :get } do |f| %>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <%= text_field_tag :q, query_string, maxlength: 100, autofocus: true %>
+            </td>
+            <td>
+              <%= f.submit t('label.search') %>
+            </td>
+            <td>
+              <%= link_to_unless query_string.blank?, t('label.cancel'), url %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
