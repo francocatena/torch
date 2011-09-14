@@ -1,11 +1,26 @@
 class ImagesController < ApplicationController
   before_filter :require_user
+  helper_method :sort_column, :sort_direction
   
   # GET /images
   # GET /images.json
   def index
     @title = t('view.images.index_title')
-    @images = Image.paginate(page: params[:page], per_page: ROWS_PER_PAGE)
+    images = Image.order(
+      "#{sort_column} #{sort_direction.upcase}"
+    )
+    
+    if params[:q].present?
+      query = params[:q].strip.gsub(/\s+/, '%')
+      images = images.where(
+        ['LOWER(name) LIKE :q', 'LOWER(caption) LIKE :q'].join(' OR '),
+        { q: "%#{query}%".downcase }
+      )
+    end
+    
+    @images = images.paginate(
+      page: params[:page], per_page: 2 #ROWS_PER_PAGE
+    )
 
     respond_to do |format|
       format.html # index.html.erb
@@ -91,5 +106,15 @@ class ImagesController < ApplicationController
       format.html { redirect_to images_url }
       format.json { head :ok }
     end
+  end
+  
+  private
+  
+  def sort_column
+    %w[name caption].include?(params[:sort]) ? params[:sort] : 'name'
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
   end
 end

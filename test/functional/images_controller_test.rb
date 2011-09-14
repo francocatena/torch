@@ -13,6 +13,17 @@ class ImagesControllerTest < ActionController::TestCase
     assert_select '#unexpected_error', false
     assert_template 'images/index'
   end
+  
+  test 'should get filtered index' do
+    UserSession.create(users(:admin))
+    get :index, q: 'login'
+    assert_response :success
+    assert_not_nil assigns(:images)
+    assert assigns(:images).size > 0
+    assert assigns(:images).all? { |i| "#{i.name} #{i.caption}".match /login/i }
+    assert_select '#unexpected_error', false
+    assert_template 'images/index'
+  end
 
   test 'should get new' do
     UserSession.create(users(:admin))

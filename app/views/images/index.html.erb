@@ -1,8 +1,10 @@
+<%= render 'shared/search' %>
+
 <table class="list">
   <thead>
     <tr>
-      <th><%= Image.human_attribute_name :name %></th>
-      <th><%= Image.human_attribute_name :caption %></th>
+      <th><%= sortable 'name', Image.human_attribute_name(:name) %></th>
+      <th><%= sortable 'caption', Image.human_attribute_name(:caption) %></th>
     </tr>
   </thead>
 

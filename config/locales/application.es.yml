@@ -50,9 +50,11 @@
   
   label:
     back: 'Volver'
+    cancel: 'Cancelar'
     close: 'Cerrar'
     edit: 'Editar'
     new: 'Nuevo'
+    search: 'Buscar'
     show: 'Ver'
     delete: 'Eliminar'
     

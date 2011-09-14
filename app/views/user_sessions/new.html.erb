@@ -2,7 +2,7 @@
   <%= form_for(@user_session) do |f| %>
     <div class="field">
       <%= f.label :email %>
-      <%= f.email_field :email, size: nil, autofocus: true %>
+      <%= f.email_field :email, size: nil, autofocus: true, autocomplete: 'on' %>
     </div>
     <div class="field">
       <%= f.label :password %>
@@ -19,12 +19,12 @@
 </section>
 
 <% if @user_session.errors.any? %>
-  <section id="login_error">
+  <div id="alert">
     <p><%= @user_session.errors.full_messages.join('; ') %></p>
     <div class="close">
       <%= link_to_function(
         'X', "$('#login_error').slideUp()", title: t('label.close')
       ) %>
     </div>
-  </section>
+  </div>
 <% end %>

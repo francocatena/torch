@@ -7,8 +7,8 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
-//= require vendor/tag-it
 //= require vendor/jquery.fancybox
+//= require vendor/tag-it
 //= require common
 //= require apps
 //= require feedbacks
