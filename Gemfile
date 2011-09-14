@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'paperclip'
 gem 'paper_trail'
 gem 'differ'
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails'
