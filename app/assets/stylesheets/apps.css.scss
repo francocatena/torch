@@ -59,7 +59,7 @@
       }
 
       &:hover {
-        height: 15em;
+        height: 15.5em;
         border: 2px solid $main-color;
         @include transition(.25s .25s, height, ease-out);
         
