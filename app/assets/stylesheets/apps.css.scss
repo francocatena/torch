@@ -8,7 +8,7 @@
 
     section.app {
       position: relative;
-      width: 15em;
+      width: 20em;
       height: 7em;
       float: left;
       padding: .5em 1em;
@@ -17,7 +17,7 @@
       overflow: hidden;
       @include rounded-corners(.5em);
       @include box-shadow(0em, 0em, 1em, #999);
-      @include double-transition(.5s, height, ease-in, .5s .5s, width, ease-in);
+      @include transition(.5s, height, ease-in);
 
       a {
         color: $text-color;
@@ -59,15 +59,14 @@
       }
 
       &:hover {
-        width: 31em;
         height: 15em;
         border: 2px solid $main-color;
-        @include double-transition(.25s .25s, width, ease-out, .25s .5s, height, ease-out);
+        @include transition(.25s .25s, height, ease-out);
         
         .description {
           opacity: 1;
-          height: 6.5em;
-          @include transition(.1s .5s, opacity, ease-out);
+          height: 10em;
+          @include transition(.2s .5s, opacity, ease-out);
         }
       }
     }
