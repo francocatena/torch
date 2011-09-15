@@ -15,6 +15,7 @@
 
     <%= textilize @hint.content %>
   </section>
+  <%= render 'footer', hint: @hint %>
 </div>
 
 <br />
@@ -31,5 +32,3 @@
   <%= link_to t('label.back'), app_hints_path(@app) %> |
   <%= link_to t('view.hints.back_to_apps'), apps_path %>
 </nav>
-
-<%= render 'footer', hint: @hint %>
