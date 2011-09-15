@@ -1,12 +1,16 @@
 class HintsController < ApplicationController
   before_filter :require_user, except: [:index, :show]
-  before_filter :load_app
+  before_filter :load_app, :load_tag
   
   # GET /apps/1/hints
   # GET /apps/1/hints.json
   def index
     @title = t('view.hints.index_title')
-    @hints = @app.hints.paginate(page: params[:page], per_page: ROWS_PER_PAGE)
+    hints = @tag ? @tag.hints : @app.hints
+    
+    @hints = hints.order('importance ASC').paginate(
+      page: params[:page], per_page: ROWS_PER_PAGE
+    )
 
     respond_to do |format|
       format.html # index.html.erb
@@ -126,5 +130,10 @@ class HintsController < ApplicationController
 
   def load_app
     @app = App.find(params[:app_id]) if params[:app_id]
+    @tags = @app.tags.with_hints.order('name ASC')
+  end
+  
+  def load_tag
+    @tag = @app.tags.find(params[:tag_id]) if params[:tag_id]
   end
 end

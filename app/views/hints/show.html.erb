@@ -1,17 +1,23 @@
-<section class="show_item">
-  <header>
-    <h1><%= @hint.header %></h1>
-    <% unless @hint.tags.empty? %>
-      <ul>
-        <% @hint.tags.each do |tag| %>
-          <li><%= tag %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </header>
-  
-  <%= textilize @hint.content %>
-</section>
+<%= render 'slidebar' %>
+
+<div class="content">
+  <section class="show_item">
+    <header>
+      <h1><%= @hint.header %></h1>
+      <% unless @hint.tags.empty? %>
+        <ul>
+          <% @hint.tags.each do |tag| %>
+            <li><%= tag %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </header>
+
+    <%= textilize @hint.content %>
+  </section>
+</div>
+
+<br />
 
 <nav class="links">
   <% if current_user %>
@@ -22,7 +28,8 @@
       confirm: t('messages.confirmation'), method: :delete
     ) %> |
   <% end %>
-  <%= link_to t('label.back'), app_hints_path(@app) %>
+  <%= link_to t('label.back'), app_hints_path(@app) %> |
+  <%= link_to t('view.hints.back_to_apps'), apps_path %>
 </nav>
 
 <%= render 'footer', hint: @hint %>

@@ -1,0 +1,11 @@
+<div class="sidebar">
+  <h1><%= link_to @app, app_hints_path(@app) %></h1>
+  <ul>
+    <% @tags.each do |tag| %>
+      <li>
+        <%= link_to_unless tag == @tag, tag, app_hints_path(@app, tag_id: tag) %>
+        <span><%= "(#{tag.hints.count})" %></span>
+      </li>
+    <% end %>
+  </ul>
+</div>

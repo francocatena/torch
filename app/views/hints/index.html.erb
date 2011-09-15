@@ -1,30 +1,25 @@
-<table class="list">
-  <caption><%= t('view.hints.hints_for', app: @app.to_s) %></caption>
-  
-  <thead>
-    <tr>
-      <th><%= Hint.human_attribute_name :header %></th>
-      <th><%= Hint.human_attribute_name :content %></th>
-      <th><%= Hint.human_attribute_name :importance %></th>
-    </tr>
-  </thead>
+<%= render 'slidebar' %>
 
-  <tbody>
-    <% @hints.each do |hint| %>
-      <tr>
-        <td><%= link_to hint.header, app_hint_path(@app, hint) %></td>
-        <td><%= truncate hint.content, length: 30, omission: '...' %></td>
-        <td><%= hint.importance %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="content">
+  <%= content_tag :h2, @tag if @tag %>
+  <% if @hints.empty? %>
+    <%=  %>
+  <% else %>
+    <ul>
+      <% @hints.each do |hint| %>
+        <li><%= link_to hint.header, app_hint_path(@app, hint) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<br />
 
 <nav class="links">
   <% if current_user %>
     <%= link_to t('label.new'), new_app_hint_path(@app) %>
   <% else %>
-    <%= link_to t('menu.apps'), apps_path %>
+    <%= link_to t('view.hints.back_to_apps'), apps_path %>
   <% end %>
   <%= will_paginate @hints %>
 </nav>

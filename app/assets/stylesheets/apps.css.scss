@@ -59,10 +59,10 @@
       }
 
       &:hover {
-        width: 25em;
-        height: 12em;
+        width: 31em;
+        height: 15em;
         border: 2px solid $main-color;
-        @include double-transition(.25s, width, ease-out, .25s .25s, height, ease-out);
+        @include double-transition(.25s .25s, width, ease-out, .25s .5s, height, ease-out);
         
         .description {
           opacity: 1;

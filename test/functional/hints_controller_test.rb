@@ -10,7 +10,19 @@ class HintsControllerTest < ActionController::TestCase
     get :index, app_id: @app.to_param
     assert_response :success
     assert_not_nil assigns(:hints)
+    assert assigns(:hints).size > 0
     assert assigns(:hints).all? { |h| h.app_id == @app.id }
+    assert_select '#unexpected_error', false
+    assert_template 'hints/index'
+  end
+  
+  test 'should get index filtered by tag' do
+    tag = @app.tags.with_hints.first
+    get :index, app_id: @app.to_param, tag_id: tag.to_param
+    assert_response :success
+    assert_not_nil assigns(:hints)
+    assert assigns(:hints).size > 0
+    assert assigns(:hints).all? { |h| h.app_id == @app.id && h.tags.include?(tag) }
     assert_select '#unexpected_error', false
     assert_template 'hints/index'
   end

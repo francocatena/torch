@@ -100,7 +100,7 @@
       correctly_created: 'Consejo agregado correctamente.'
       correctly_updated: 'Consejo actualizado correctamente.'
       stale_object_error: 'El consejo no pudo ser actualizado, intente nuevamente.'
-      hints_for: 'Consejos de %{app}'
+      back_to_apps: 'Inicio'
       history: 'Ver historia'
       history_of: 'Histórico del consejo %{hint}'
       show_current: 'Ver versión actual'

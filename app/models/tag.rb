@@ -1,6 +1,9 @@
 class Tag < ActiveRecord::Base
   include Comparable
   
+  # Scopes
+  scope :with_hints, includes(:hints).where("#{Hint.table_name}.id IS NOT NULL")
+  
   # Restricciones
   validates :app, presence: true
   validates :name, presence: true, uniqueness: { scope: :app_id },

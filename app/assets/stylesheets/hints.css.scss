@@ -84,7 +84,7 @@
 
     h1 {
       font-size: 1.5em;
-      margin-bottom: 1em 0em;
+      margin-bottom: 1em;
     }
 
     h2 {
@@ -175,7 +175,7 @@
       box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .4), 0 .9em .5em -0.2em rgba(255, 255, 255, .2) inset;
       @include rounded-corners(.25em);
     }
-
+    
     .highlight {
       padding: .1em .25em;
       background: #ff9;
@@ -186,6 +186,104 @@
       color: #c00;
       font-weight: bold;
       text-shadow: .1em .1em .1em rgba(0, 0, 0, .3);
+    }
+  }
+}
+
+#hints[data-action="index"], #hints[data-action="show"] {
+  #content {
+    background: #f6f6f6;
+    border: none;
+    
+    nav.links {
+      clear: both;
+      padding-top: .5em;
+      border-top: 2px solid #ccc;
+    }
+
+    .content {
+      float: right;
+      width: 75%;
+      padding: 1em;
+      background: #fff;
+      border: 2px solid #ccc;
+      @include rounded-corners(.5em);
+      @include box-shadow(0em, 0em, .5em, #999);
+
+      a {
+        color: #14629e;
+        text-decoration: none;
+        padding-bottom: .1em;
+        border-bottom: 1px solid #14629e;
+
+        &:visited {
+          color: #2490e3;
+          border-bottom: 1px solid #2490e3;
+        }
+         
+        &:hover, &:focus {
+          color: #6fb6ed;
+          border-bottom: 1px solid #6fb6ed;
+        }
+      }
+
+      h2 {
+        font-size: 1.25em;
+        margin: 0em;
+        text-align: center;
+      }
+
+      ul {
+        font-size: 1.25em;
+        line-height: 1.5em;
+        list-style: square;
+      }
+    }
+
+    .sidebar {
+      float: left;
+      width: 20%;
+      padding-bottom: 1em;
+
+      a {
+        text-decoration: none;
+        padding-bottom: .1em;
+        color: $text-color;
+        border-bottom: 1px dotted $text-color;
+
+        &:hover {
+          color: $main-color;
+          border-bottom: 1px dotted $main-color;
+        }
+      }
+
+      h1 {
+        font-size: 1.5em;
+        line-height: 1.5em;
+        margin: 0em 0em 1em 0em;
+
+        a {
+          font-weight: normal;
+          letter-spacing: -.1em;
+        }
+      }
+
+      ul {
+        list-style: none;
+        margin: 0em 1em;
+        line-height: 1.5em;
+
+        li {
+          font-weight: bold;
+          color: lighten($text-color, 20%);
+
+          span {
+            font-size: .8em;
+            font-weight: normal;
+            margin-left: .5em;
+          }
+        }
+      }
     }
   }
 }
