@@ -7,11 +7,24 @@ class HintsControllerTest < ActionController::TestCase
   end
 
   test 'should get index' do
+    UserSession.create(users(:admin))
     get :index, app_id: @app.to_param
     assert_response :success
     assert_not_nil assigns(:hints)
     assert assigns(:hints).size > 0
     assert assigns(:hints).all? { |h| h.app_id == @app.id }
+    assert assigns(:hints).any?(&:private)
+    assert_select '#unexpected_error', false
+    assert_template 'hints/index'
+  end
+  
+  test 'should get index without privates' do
+    get :index, app_id: @app.to_param
+    assert_response :success
+    assert_not_nil assigns(:hints)
+    assert assigns(:hints).size > 0
+    assert assigns(:hints).all? { |h| h.app_id == @app.id }
+    assert assigns(:hints).all? { |h| !h.private }
     assert_select '#unexpected_error', false
     assert_template 'hints/index'
   end

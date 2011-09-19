@@ -2,6 +2,15 @@ new_hint:
   header: 'Create a new hint in Torch'
   content: 'To create a new *hint* in _Torch_ you must...'
   importance: 1
+  private: false
+  app: torch
+  tags: hints
+  
+hint_in_progress:
+  header: 'A new hint, still private'
+  content: 'To make a hint *private* in _Torch_ you must...'
+  importance: 1
+  private: true
   app: torch
   tags: hints
 
@@ -9,5 +18,6 @@ new_slide:
   header: 'Create a new slide in Ignite'
   content: 'To create a new *slide* in _Ignite_ you must...'
   importance: 1
+  private: false
   app: ignite
   tags: slides

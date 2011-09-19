@@ -7,6 +7,7 @@ class HintsController < ApplicationController
   def index
     @title = t('view.hints.index_title')
     hints = @tag ? @tag.hints : @app.hints
+    hints = hints.public unless current_user
     
     @hints = hints.order('importance ASC').paginate(
       page: params[:page], per_page: ROWS_PER_PAGE
@@ -22,7 +23,7 @@ class HintsController < ApplicationController
   # GET /apps/1/hints/1.json
   def show
     @title = t('view.hints.show_title')
-    @hint = @app.hints.find(params[:id])
+    @hint = (current_user ? @app.hints : @app.hints.public).find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

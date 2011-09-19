@@ -13,6 +13,10 @@
     <%= f.number_field :importance, size: nil %>
   </div>
   <div class="field">
+    <%= f.label :private %>
+    <%= f.check_box :private %>
+  </div>
+  <div class="field">
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list, size: nil %>
   </div>

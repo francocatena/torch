@@ -1,6 +1,9 @@
 class Hint < ActiveRecord::Base
   has_paper_trail only: [:content]
   
+  # Scopes
+  scope :public, where(private: false)
+  
   # Restricciones
   validates :app, :header, :content, :importance, presence: true
   validates :header, uniqueness: { scope: :app_id }, length: { maximum: 255 }
