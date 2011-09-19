@@ -56,18 +56,28 @@
       .links {
         position: absolute;
         bottom: .5em;
+        opacity: 0;
+        @include transition(.25s, opacity, ease-out);
       }
 
       &:hover {
-        height: 15.5em;
         border: 2px solid $main-color;
-        @include transition(.25s .25s, height, ease-out);
-        
-        .description {
+
+        .links {
           opacity: 1;
-          height: 10em;
-          @include transition(.2s .5s, opacity, ease-out);
+          @include transition(.25s, opacity, ease-in);
         }
+      }
+    }
+
+    section.app.expanded {
+      height: 15.5em;
+      @include transition(.25s, height, ease-out);
+
+      .description {
+        opacity: 1;
+        height: 10em;
+        @include transition(.2s .25s, opacity, ease-out);
       }
     }
     

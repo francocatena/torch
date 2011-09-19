@@ -10,7 +10,10 @@
     </div>
     
     <p class="links">
-      <%= link_to t('view.apps.show_hints'), app_hints_path(app) %>
+      <%= link_to t('view.apps.show_hints'), app_hints_path(app) %> |
+      <%= link_to t('view.apps.expand'), '#', :class => 'toggle-expand',
+        'data-contract-label' => t('view.apps.contract'),
+        'data-expand-label' => t('view.apps.expand') %>
     </p>
   </section>
 <% end %>

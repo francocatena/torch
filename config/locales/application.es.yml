@@ -86,6 +86,8 @@
       stale_object_error: 'La aplicación no pudo ser actualizada, intente nuevamente.'
       new: 'Nueva'
       show_hints: 'Ver consejos'
+      expand: 'Expandir'
+      contract: 'Contraer'
     feedbacks:
       submit: 'Enviar comentario'
       positive_return: 'Nos alegra haberte ayudado. Gracias por la retroalimentación.'
