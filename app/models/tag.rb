@@ -2,7 +2,12 @@ class Tag < ActiveRecord::Base
   include Comparable
   
   # Scopes
-  scope :with_hints, includes(:hints).where("#{Hint.table_name}.id IS NOT NULL")
+  scope :with_hints, includes(:hints).where(
+    [
+      "#{Hint.table_name}.id IS NOT NULL",
+      "#{Hint.table_name}.private = :false"
+    ].join(' AND '), :false => false
+  )
   
   # Restricciones
   validates :app, presence: true
