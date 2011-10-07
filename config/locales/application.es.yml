@@ -109,6 +109,7 @@
       show_current: 'Ver versión actual'
       comments: 'Comentarios'
       comment_for_all: 'Todos'
+      print: 'Imprimir'
     images:
       index_title: 'Listado de imágenes'
       show_title: 'Detalle de imagen'

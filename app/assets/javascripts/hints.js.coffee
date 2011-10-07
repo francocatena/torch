@@ -7,3 +7,5 @@ jQuery ->
       link = $('<a></a>').attr('href', largeImage).fancybox(type: 'image')
 
       $(this).wrap(link)
+    
+    $('a.print').click -> window.print()
