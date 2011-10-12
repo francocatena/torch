@@ -40,15 +40,15 @@ class ApplicationController < ActionController::Base
   end
   
   def require_user
-    unless current_user
+    if current_user
+      response.headers['Cache-Control'] = 'no-cache, no-store'
+    else
       flash.notice = t('messages.must_be_logged_in')
 
       store_location
       redirect_to admin_url
 
       false
-    else
-      expires_now
     end
   end
 

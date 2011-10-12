@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1'
 
 gem 'pg'
 gem 'authlogic'
@@ -26,5 +26,6 @@ group :development do
 end
 
 group :test do
+  gem 'minitest', require: false # Turn dependency
   gem 'turn', require: false
 end
