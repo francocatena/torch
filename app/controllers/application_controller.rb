@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user
+  after_filter lambda { expires_now if current_user }
   
   protect_from_forgery
   
@@ -40,9 +41,7 @@ class ApplicationController < ActionController::Base
   end
   
   def require_user
-    if current_user
-      response.headers['Cache-Control'] = 'no-cache, no-store'
-    else
+    unless current_user
       flash.notice = t('messages.must_be_logged_in')
 
       store_location

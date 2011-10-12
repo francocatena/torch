@@ -33,7 +33,7 @@ class ApplicationControllerTest < ActionController::TestCase
       @controller.send(:flash)[:notice]
 
     UserSession.create(users(:admin))
-    assert @controller.send(:require_user)
+    assert_not_equal false, @controller.send(:require_user)
   end
 
   test 'require no user' do
