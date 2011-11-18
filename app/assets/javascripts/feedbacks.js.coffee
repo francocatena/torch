@@ -1,3 +1,3 @@
 jQuery ->
-  $('#feedback a, #feedback form').live 'ajax:success', (event, data) ->
+  $(document).on 'ajax:success', '#feedback a, #feedback form', (event, data) ->
     $('#feedback').html(data).find('textarea').focus()
