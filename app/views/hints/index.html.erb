@@ -8,7 +8,7 @@
     <ul>
       <% @hints.each do |hint| %>
         <li <%= raw 'class="private"' if hint.private %>>
-          <%= link_to hint.header, app_hint_path(@app, hint) %>
+          <%= link_to hint.header, app_hint_path(@app, hint, single: params[:single]) %>
         </li>
       <% end %>
     </ul>

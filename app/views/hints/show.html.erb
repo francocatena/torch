@@ -30,6 +30,8 @@
       confirm: t('messages.confirmation'), method: :delete
     ) %> |
   <% end %>
-  <%= link_to t('label.back'), app_hints_path(@app) %> |
-  <%= link_to t('view.hints.back_to_apps'), apps_path %>
+  <%= link_to t('label.back'), app_hints_path(@app, single: params[:single]) %>
+  <% if params[:single].blank? %>
+    | <%= link_to t('view.hints.back_to_apps'), apps_path %>
+  <% end %>
 </nav>
