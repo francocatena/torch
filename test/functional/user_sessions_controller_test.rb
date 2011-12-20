@@ -36,6 +36,21 @@ class UserSessionsControllerTest < ActionController::TestCase
     assert_select '#error_body', false
     assert_template 'user_sessions/new'
   end
+  
+  test 'should not create a user session with a disabled user' do
+    user = users(:disabled_user)
+    
+    post :create, user_session: {
+      email: user.email,
+      password: 'disabled_user123'
+    }
+
+    assert_nil UserSession.find
+    assert_response :success
+    assert_not_nil assigns(:user_session)
+    assert_select '#error_body', false
+    assert_template 'user_sessions/new'
+  end
 
   test 'should destroy user session' do
     UserSession.create(@user)

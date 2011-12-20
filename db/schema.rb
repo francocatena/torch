@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110919125948) do
+ActiveRecord::Schema.define(:version => 20111220161158) do
 
   create_table "apps", :force => true do |t|
     t.string   "name",                        :null => false
@@ -93,15 +93,16 @@ ActiveRecord::Schema.define(:version => 20110919125948) do
   add_index "tags", ["name"], :name => "index_tags_on_name"
 
   create_table "users", :force => true do |t|
-    t.string   "name",                             :null => false
-    t.string   "lastname",                         :null => false
-    t.string   "email",                            :null => false
-    t.string   "crypted_password",                 :null => false
-    t.string   "password_salt",                    :null => false
-    t.string   "persistence_token",                :null => false
+    t.string   "name",                                :null => false
+    t.string   "lastname",                            :null => false
+    t.string   "email",                               :null => false
+    t.string   "crypted_password",                    :null => false
+    t.string   "password_salt",                       :null => false
+    t.string   "persistence_token",                   :null => false
     t.integer  "lock_version",      :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "enable",            :default => true
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

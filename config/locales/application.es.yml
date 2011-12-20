@@ -46,10 +46,13 @@
         name: 'Nombre'
         lastname: 'Apellido'
         email: 'Correo'
+        enable: 'Habilitado'
         password: 'Contraseña'
         password_confirmation: 'Confirmación'
   
   label:
+    'yes': 'Si'
+    'no': 'No'
     back: 'Volver'
     cancel: 'Cancelar'
     close: 'Cerrar'

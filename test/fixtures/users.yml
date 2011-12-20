@@ -5,6 +5,7 @@ admin:
   password_salt: <%= salt = Authlogic::Random.hex_token %>
   crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt('admin123' + salt) %>
   persistence_token: <%= Authlogic::Random.hex_token %>
+  enable: true
 
 anakin:
   name: Anakin
@@ -13,3 +14,13 @@ anakin:
   password_salt: <%= salt = Authlogic::Random.hex_token %>
   crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt('anakin123' + salt) %>
   persistence_token: <%= Authlogic::Random.hex_token %>
+  enable: true
+  
+disabled_user:
+  name: Disabled
+  lastname: Disabled
+  email: disabled@torch.com
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt('disabled_user123' + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  enable: false

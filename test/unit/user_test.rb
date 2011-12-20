@@ -10,6 +10,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal users(:admin).name, @user.name
     assert_equal users(:admin).lastname, @user.lastname
     assert_equal users(:admin).email, @user.email
+    assert_equal users(:admin).enable, @user.enable
   end
 
   test 'create' do
@@ -19,7 +20,8 @@ class UserTest < ActiveSupport::TestCase
         lastname: 'Binks',
         email: 'jjb@sw.com',
         password: 'jarjar123',
-        password_confirmation: 'jarjar123'
+        password_confirmation: 'jarjar123',
+        enable: true
       )
     end
   end

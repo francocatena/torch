@@ -3,6 +3,10 @@
     <h1><%= @user %></h1>
     <p><%= mail_to @user.email, @user.email %></p>
   </header>
+  <p>
+    <b><%= User.human_attribute_name 'enable' %></b>:
+    <%= t(@user.enable ? 'label.yes' : 'label.no') %>
+  </p>
 </section>
 
 <nav class="links">

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   
   # Atributos editables por asignación masiva
   attr_accessible :name, :lastname, :email, :password, :password_confirmation,
-    :lock_version
+    :enable, :lock_version
   
   # Scopes
   scope :all_except, ->(user_id) { where('id <> ?', user_id) }
@@ -17,5 +17,9 @@ class User < ActiveRecord::Base
   
   def to_s
     [self.name, self.lastname].join(' ')
+  end
+  
+  def active?
+    self.enable
   end
 end

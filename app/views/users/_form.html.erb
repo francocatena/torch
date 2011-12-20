@@ -21,6 +21,10 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, size: nil, maxlength: 255 %>
   </div>
+  <div class="field">
+    <%= f.label :enable %>
+    <%= f.check_box :enable %>
+  </div>
 
   <div class="actions">
     <%= f.hidden_field :lock_version %>

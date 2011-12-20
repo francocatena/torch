@@ -31,7 +31,8 @@ class UsersControllerTest < ActionController::TestCase
         lastname: 'Binks',
         email: 'jjb@sw.com',
         password: 'jarjar123',
-        password_confirmation: 'jarjar123'
+        password_confirmation: 'jarjar123',
+        enable: '1'
       }
     end
 
@@ -61,7 +62,8 @@ class UsersControllerTest < ActionController::TestCase
     put :update, id: @user.to_param, user: {
       name: 'Darth',
       lastname: 'Sidious',
-      email: 'ds@sw.com'
+      email: 'ds@sw.com',
+      enable: '1'
     }
     
     assert_redirected_to user_path(assigns(:user))
