@@ -1,6 +1,10 @@
 class Hint < ActiveRecord::Base
   has_paper_trail only: [:content]
   
+  # Atributos editables por asignación masiva
+  attr_accessible :header, :content, :importance, :app_id, :private,
+    :tag_list, :lock_version, :comments_attributes
+  
   # Scopes
   scope :public, where(private: false)
   
@@ -17,7 +21,7 @@ class Hint < ActiveRecord::Base
   has_and_belongs_to_many :tags
   
   accepts_nested_attributes_for :comments, allow_destroy: false,
-    reject_if: lambda { |attr| attr['comment'].blank? }
+    reject_if: ->(attr) { attr['comment'].blank? }
   
   def initialize(attributes = nil, options = {})
     super(attributes.except(:tag_list), options)

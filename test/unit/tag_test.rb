@@ -15,7 +15,7 @@ class TagTest < ActiveSupport::TestCase
     assert_difference 'Tag.count' do
       @tag = Tag.create(
         name: 'Apps',
-        app: apps(:torch)
+        app_id: apps(:torch).id
       )
     end
   end

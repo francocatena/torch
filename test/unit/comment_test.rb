@@ -25,8 +25,8 @@ class CommentTest < ActiveSupport::TestCase
       assert_difference ['Comment.count', 'Version.count'] do
         @comment = Comment.create(
           comment: 'This need a tweak or two at least',
-          hint: hints(:new_hint),
-          user: users(:anakin),
+          hint_id: hints(:new_hint).id,
+          user_id: users(:anakin).id,
           must_be_sent_by_email: '0'
         )
       end
@@ -41,8 +41,8 @@ class CommentTest < ActiveSupport::TestCase
       assert_difference ['Comment.count', 'Version.count'] do
         @comment = Comment.create(
           comment: 'This need a tweak or two at least',
-          hint: hints(:new_hint),
-          user: users(:anakin),
+          hint_id: hints(:new_hint).id,
+          user_id: users(:anakin).id,
           must_be_sent_by_email: '1'
         )
       end

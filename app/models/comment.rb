@@ -4,6 +4,9 @@ class Comment < ActiveRecord::Base
   # Callbacks
   after_create :send_by_email
   
+  # Atributos editables por asignación masiva
+  attr_accessible :comment, :user_id, :hint_id, :must_be_sent_by_email
+  
   # Atributos "solo lectura"
   attr_readonly :comment, :hint_id
   

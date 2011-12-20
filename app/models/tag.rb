@@ -1,12 +1,15 @@
 class Tag < ActiveRecord::Base
   include Comparable
   
+  # Atributos editables por asignación masiva
+  attr_accessible :app_id, :name
+  
   # Scopes
   scope :with_hints, includes(:hints).where(
     [
       "#{Hint.table_name}.id IS NOT NULL",
       "#{Hint.table_name}.private = :false"
-    ].join(' AND '), :false => false
+    ].join(' AND '), false: false
   )
   
   # Restricciones

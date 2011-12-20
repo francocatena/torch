@@ -22,7 +22,7 @@ class FeedbackTest < ActiveSupport::TestCase
     assert_difference 'Feedback.positive.count' do
       @feedback = Feedback.create(
         positive: true,
-        hint: hints(:new_hint)
+        hint_id: hints(:new_hint).id
       )
     end
   end

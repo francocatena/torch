@@ -21,7 +21,7 @@ class HintTest < ActiveSupport::TestCase
           content: 'To update a *hint* in _Torch_ you must...',
           importance: 1,
           tag_list: 'New tag, other new tag',
-          app: apps(:torch)
+          app_id: apps(:torch).id
         )
       end
     end

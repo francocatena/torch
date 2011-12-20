@@ -1,4 +1,7 @@
 class App < ActiveRecord::Base
+  # Atributos editables por asignación masiva
+  attr_accessible :name, :url, :description, :lock_version
+  
   # Restricciones
   validates :name, :url, presence: true, uniqueness: true,
     length: { maximum: 255 }

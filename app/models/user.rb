@@ -4,8 +4,12 @@ class User < ActiveRecord::Base
     c.crypto_provider = Authlogic::CryptoProviders::Sha512
   end
   
+  # Atributos editables por asignación masiva
+  attr_accessible :name, :lastname, :email, :password, :password_confirmation,
+    :lock_version
+  
   # Scopes
-  scope :all_except, lambda { |user_id| where('id <> ?', user_id) }
+  scope :all_except, ->(user_id) { where('id <> ?', user_id) }
   
   # Restricciones
   validates :name, :lastname, presence: true, length: { maximum: 255 }
