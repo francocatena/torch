@@ -20,7 +20,7 @@
 <nav class="links">
   <% if current_user %>
     <%= link_to t('label.new'), new_app_hint_path(@app) %>
-  <% else %>
+  <% elsif params[:single].blank? %>
     <%= link_to t('view.hints.back_to_apps'), apps_path %>
   <% end %>
   <%= will_paginate @hints %>
